@@ -1,0 +1,20 @@
+{
+  "run_id": "run_15c1f7da871f",
+  "step": 4,
+  "step_name": "Audited Listing list_sf_002",
+  "timestamp": "2026-05-23T13:04:19.556481",
+  "data": {
+    "listing_id": "list_sf_002",
+    "title": "Vibrant Mission District Oasis",
+    "approved": false,
+    "score": 25,
+    "reasoning": {
+      "budget": "The listing price of $3250 significantly exceeds the maximum budget of $2000, making it over budget by $1250. This is a critical mismatch.",
+      "laundry": "The user does not require in-unit laundry, and the listing's amenities do not explicitly mention in-unit laundry. This satisfies the user's preference.",
+      "climbing_gym": "The user does not require the listing to be close to a climbing gym or active fitness. While this listing is very close (0.3 miles), this constraint is met as proximity is not a requirement.",
+      "commute": "The commute time to Downtown is 15 minutes, which is well within the maximum allowed commute time of 45 minutes. This is an excellent match.",
+      "search_query": "The listing is located in the Mission District (850 Valencia St) with a high walkability score of 98. This neighborhood is known for its excellent public transportation access, including proximity to BART stations (16th St Mission and 24th St Mission). This strongly satisfies the 'close to BART' preference.",
+      "overall": "This listing is not approved primarily due to the significant budget mismatch, as the price of $3250 is $1250 over the user's maximum budget of $2000. While it aligns very well with other preferences, such as the commute to downtown, the non-requirement for in-unit laundry and climbing gym proximity, and its excellent proximity to BART, the budget constraint is a fundamental deal-breaker."
+    }
+  }
+}
