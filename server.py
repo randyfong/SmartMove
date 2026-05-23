@@ -37,6 +37,7 @@ class AgentRunRequest(BaseModel):
     requireLaundry: bool
     requireGym: bool
     maxCommute: float
+    searchQuery: str = ""
 
 class ApproveRequest(BaseModel):
     listingId: str
@@ -109,7 +110,8 @@ def run_agent(req: AgentRunRequest):
             "budget": req.budget,
             "requireLaundry": req.requireLaundry,
             "requireGym": req.requireGym,
-            "maxCommute": req.maxCommute
+            "maxCommute": req.maxCommute,
+            "searchQuery": req.searchQuery
         }
         
         pipeline_results = agent.run_pipeline(requirements)

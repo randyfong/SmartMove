@@ -94,6 +94,11 @@
                     <input type="range" id="input-commute" min="10" max="60" step="5" value="30">
                 </div>
 
+                <div class="form-group">
+                    <label for="input-search">Freeform Search Criteria</label>
+                    <input type="text" id="input-search" placeholder="e.g. exposed brick, doorman, rooftop">
+                </div>
+
                 <div class="form-group switches-group">
                     <div class="switch-row">
                         <div class="switch-info">
@@ -182,6 +187,11 @@
                     <span class="summary-pill total">Total Evaluated: <strong id="val-total-eval">0</strong></span>
                     <span class="summary-pill approved">Approved: <strong id="val-approved-count">0</strong></span>
                     <span class="summary-pill rejected">Filtered: <strong id="val-filtered-count">0</strong></span>
+                </div>
+                
+                <div class="tree-search-wrapper">
+                    <svg class="search-icon" viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="tree-search-input" placeholder="Search evaluated properties...">
                 </div>
                 
                 <div class="tree-filter-buttons">
@@ -353,6 +363,16 @@
                         </div>
                         <div class="accordion-content">
                             <p id="txt-audit-commute"></p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item" id="accordion-item-search" style="display: none;">
+                        <div class="accordion-header">
+                            <span class="acc-title">Freeform Criteria Match</span>
+                            <span id="badge-audit-search" class="acc-badge approved">PASS</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p id="txt-audit-search"></p>
                         </div>
                     </div>
 

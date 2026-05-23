@@ -284,15 +284,16 @@ class RelocationAgent:
         require_laundry = reqs.get("requireLaundry", True)
         require_gym = reqs.get("requireGym", True)
         max_commute = float(reqs.get("maxCommute", 30))
+        search_query = reqs.get("searchQuery", "").strip()
         
         if self.gemini_api_key:
             # Let's perform a live Gemini content generation call
-            return self._call_gemini_evaluation(listing, max_budget, require_laundry, require_gym, max_commute)
+            return self._call_gemini_evaluation(listing, max_budget, require_laundry, require_gym, max_commute, search_query)
         else:
             # Use our ultra high-fidelity rules engine to generate realistic reasoning logs
-            return self._mock_evaluation(listing, max_budget, require_laundry, require_gym, max_commute)
+            return self._mock_evaluation(listing, max_budget, require_laundry, require_gym, max_commute, search_query)
 
-    def _call_gemini_evaluation(self, listing: dict, max_budget, require_laundry, require_gym, max_commute):
+    def _call_gemini_evaluation(self, listing: dict, max_budget, require_laundry, require_gym, max_commute, search_query=""):
         """
         Makes a live HTTP request to Gemini 2.5 Flash model with structured JSON schemas
         """
@@ -306,7 +307,11 @@ User Constraints:
 - In-unit laundry required: {require_laundry}
 - Must be close to climbing gym / active fitness: {require_gym}
 - Max Commute to Downtown: {max_commute} minutes
-
+"""
+        if search_query:
+            prompt += f"- Freeform search criteria / custom preference: {search_query}\n"
+            
+        prompt += f"""
 Apartment Listing:
 {json.dumps(listing, indent=2)}
 
@@ -319,7 +324,11 @@ You MUST respond with a JSON object in this exact schema (no additional wrapping
     "laundry": "detailed explanation of laundry matching",
     "climbing_gym": "detailed explanation of fitness proximity matching",
     "commute": "detailed explanation of commute matching",
-    "overall": "comprehensive overall reasoning matching user profile"
+"""
+        if search_query:
+            prompt += '    "search_query": "detailed explanation of how well the listing satisfies/contains elements of the freeform search criteria",\n'
+            
+        prompt += """    "overall": "comprehensive overall reasoning matching user profile"
   }}
 }}
 """
@@ -355,7 +364,7 @@ You MUST respond with a JSON object in this exact schema (no additional wrapping
         # Fall back to high-fidelity mock if live call fails
         return self._mock_evaluation(listing, max_budget, require_laundry, require_gym, max_commute)
 
-    def _mock_evaluation(self, listing: dict, max_budget, require_laundry, require_gym, max_commute):
+    def _mock_evaluation(self, listing: dict, max_budget, require_laundry, require_gym, max_commute, search_query=""):
         """
         Fast, offline rules engine to dynamically generate extremely detailed relocation analysis logs.
         """
@@ -422,15 +431,52 @@ You MUST respond with a JSON object in this exact schema (no additional wrapping
             approved = False
             score -= 25
             
+        # 5. Custom search query keyword check
+        search_matched = True
+        if search_query:
+            query_lower = search_query.lower()
+            matched = False
+            match_location = ""
+            
+            if query_lower in listing["title"].lower():
+                matched = True
+                match_location = "title"
+            elif query_lower in listing["description"].lower():
+                matched = True
+                match_location = "description"
+            elif query_lower in listing["neighborhood"].lower():
+                matched = True
+                match_location = "neighborhood"
+            elif query_lower in listing["address"].lower():
+                matched = True
+                match_location = "address"
+            else:
+                for amenity in listing["amenities"]:
+                    if query_lower in amenity.lower():
+                        matched = True
+                        match_location = f"amenities ({amenity})"
+                        break
+            
+            if matched:
+                reasons["search_query"] = f"Approved: The listing matches your custom preference '{search_query}' (found matching keywords in listing {match_location})."
+                score += 15
+            else:
+                reasons["search_query"] = f"REJECTED: The listing does not contain matching keywords for your custom criteria '{search_query}'."
+                approved = False
+                search_matched = False
+                score -= 30
+            
         # Overall Summary
         if approved:
-            reasons["overall"] = f"This listing is an excellent fit! Scoring {score}/100, the property fully matches your budget restrictions, provides prime commute times ({commute} mins), and sits only {gym_dist} miles from climbing/fitness facilities."
+            bonus_str = f" and perfectly satisfies your custom preference '{search_query}'" if search_query else ""
+            reasons["overall"] = f"This listing is an excellent fit! Scoring {score}/100, the property fully matches your budget restrictions, provides prime commute times ({commute} mins), sits only {gym_dist} miles from climbing/fitness facilities{bonus_str}."
         else:
             failed_elements = []
             if price > max_budget: failed_elements.append("budget")
             if require_laundry and not has_in_unit: failed_elements.append("in-unit laundry")
             if require_gym and gym_dist > 2.0: failed_elements.append("gym proximity")
             if commute > max_commute: failed_elements.append("commute threshold")
+            if search_query and not search_matched: failed_elements.append(f"custom criteria '{search_query}'")
             reasons["overall"] = f"This listing was rejected due to mismatch in requirements: {', '.join(failed_elements)}. Final compatibility score: {score}/100."
             
         # Ensure score is bound between 0 and 100

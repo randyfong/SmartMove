@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const commuteValVal = document.getElementById("commute-val");
     const inputLaundry = document.getElementById("input-laundry");
     const inputGym = document.getElementById("input-gym");
+    const inputSearch = document.getElementById("input-search");
     const btnRunAgent = document.getElementById("btn-run-agent");
     const btnRunText = btnRunAgent.querySelector(".btn-text");
     const btnRunLoader = btnRunAgent.querySelector(".btn-loader");
@@ -47,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const valApprovedCount = document.getElementById("val-approved-count");
     const valFilteredCount = document.getElementById("val-filtered-count");
     const decisionTreeContainer = document.getElementById("decision-tree-container");
+    const treeSearchInput = document.getElementById("tree-search-input");
     const treeFilterBtns = document.querySelectorAll(".tree-filter-btn");
 
     // Git Checkpoints
@@ -77,10 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const accordionGym = document.getElementById("txt-audit-gym");
     const accordionCommute = document.getElementById("txt-audit-commute");
     const accordionOverall = document.getElementById("txt-audit-overall");
+    const accordionSearch = document.getElementById("txt-audit-search");
     const badgeAuditBudget = document.getElementById("badge-audit-budget");
     const badgeAuditLaundry = document.getElementById("badge-audit-laundry");
     const badgeAuditGym = document.getElementById("badge-audit-gym");
     const badgeAuditCommute = document.getElementById("badge-audit-commute");
+    const badgeAuditSearch = document.getElementById("badge-audit-search");
+    const accordionItemSearch = document.getElementById("accordion-item-search");
     const auditGitHash = document.getElementById("audit-git-hash");
     const auditGitMsg = document.getElementById("audit-git-msg");
     const auditGitDate = document.getElementById("audit-git-date");
@@ -123,6 +128,15 @@ document.addEventListener("DOMContentLoaded", () => {
     inputCommute.addEventListener("input", (e) => {
         commuteValVal.textContent = `${e.target.value} mins`;
     });
+
+    // Real-time client-side listing search filtering
+    if (treeSearchInput) {
+        treeSearchInput.addEventListener("input", () => {
+            const activeFilterBtn = document.querySelector(".tree-filter-btn.active");
+            const activeFilter = activeFilterBtn ? activeFilterBtn.dataset.filter : "all";
+            renderDecisionTree(activeFilter);
+        });
+    }
 
     // Handle dialog close buttons globally
     btnCloseDialogs.forEach(btn => {
@@ -299,7 +313,8 @@ document.addEventListener("DOMContentLoaded", () => {
             budget: parseFloat(inputBudget.value),
             requireLaundry: inputLaundry.checked,
             requireGym: inputGym.checked,
-            maxCommute: parseFloat(inputCommute.value)
+            maxCommute: parseFloat(inputCommute.value),
+            searchQuery: inputSearch ? inputSearch.value.trim() : ""
         };
 
         try {
@@ -399,6 +414,18 @@ document.addEventListener("DOMContentLoaded", () => {
             filteredListings = state.listings.filter(l => l.approved);
         } else if (filter === "rejected") {
             filteredListings = state.listings.filter(l => !l.approved);
+        }
+
+        // Apply instant client-side search text filtering
+        const searchVal = treeSearchInput ? treeSearchInput.value.toLowerCase().trim() : "";
+        if (searchVal) {
+            filteredListings = filteredListings.filter(l => 
+                l.title.toLowerCase().includes(searchVal) ||
+                l.address.toLowerCase().includes(searchVal) ||
+                l.neighborhood.toLowerCase().includes(searchVal) ||
+                l.amenities.some(a => a.toLowerCase().includes(searchVal)) ||
+                (l.reasoning && l.reasoning.overall && l.reasoning.overall.toLowerCase().includes(searchVal))
+            );
         }
 
         // Update counts
@@ -635,6 +662,15 @@ document.addEventListener("DOMContentLoaded", () => {
             accordionGym.textContent = reasoning.climbing_gym;
             accordionCommute.textContent = reasoning.commute;
             accordionOverall.textContent = reasoning.overall;
+
+            // Handle optional freeform search query reasoning
+            if (reasoning.search_query) {
+                accordionSearch.textContent = reasoning.search_query;
+                setupAuditPill(badgeAuditSearch, !reasoning.search_query.toLowerCase().includes("rejected") && !reasoning.search_query.toLowerCase().includes("fail"));
+                accordionItemSearch.style.display = "block";
+            } else {
+                accordionItemSearch.style.display = "none";
+            }
 
             // Set pass/fail status pills
             setupAuditPill(badgeAuditBudget, !reasoning.budget.toLowerCase().includes("rejected"));
