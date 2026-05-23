@@ -1,0 +1,20 @@
+{
+  "run_id": "run_940322c1ef1b",
+  "step": 4,
+  "step_name": "Audited Listing list_sf_002",
+  "timestamp": "2026-05-23T14:07:17.045759",
+  "data": {
+    "listing_id": "list_sf_002",
+    "title": "Vibrant Mission District Oasis",
+    "approved": false,
+    "score": 65,
+    "reasoning": {
+      "budget": "The listing price of $3250 is well within the user's maximum budget of $3500, satisfying this constraint.",
+      "laundry": "The listing does not explicitly mention 'in-unit laundry' in its amenities. This is a required constraint for the user, and therefore this listing does not meet this critical criterion.",
+      "climbing_gym": "The listing is extremely close to a climbing gym, with a distance of only 0.3 miles, strongly satisfying the user's requirement for proximity to active fitness.",
+      "commute": "The commute time to Downtown is 15 minutes, which is well within the user's maximum commute limit of 30 minutes, satisfying this constraint.",
+      "search_query": "The apartment is located in the Mission District, specifically on Valencia St, which is a prime location for BART access. Both the 16th Street Mission and 24th Street Mission BART stations are within easy walking distance, satisfying the custom preference for being close to BART. The high walkability score of 98 further supports excellent public transport access.",
+      "overall": "This listing strongly satisfies most of the user's criteria, including budget, proximity to climbing gyms, commute time to Downtown, and access to BART. However, it critically fails the 'in-unit laundry required' constraint, as this amenity is not listed. Due to the failure of a required amenity, the listing cannot be fully approved despite its strengths in other areas."
+    }
+  }
+}
