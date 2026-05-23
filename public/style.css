@@ -1104,10 +1104,10 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 .checkpoints-table .commit-msg {
     color: var(--text-secondary);
-    max-width: 320px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    max-width: 500px;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.4;
 }
 
 .checkpoints-table .file-name {
