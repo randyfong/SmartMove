@@ -1,0 +1,19 @@
+{
+  "run_id": "run_15721234c967",
+  "step": 3,
+  "step_name": "Audited Listing list_sf_001",
+  "timestamp": "2026-05-23T12:42:34.578876",
+  "data": {
+    "listing_id": "list_sf_001",
+    "title": "The Lumina Luxury Residences",
+    "approved": true,
+    "score": 98,
+    "reasoning": {
+      "budget": "The listing price of $3400 is well within the maximum budget of $3500.0, leaving $100 for other expenses or savings.",
+      "laundry": "The listing explicitly includes 'In-unit Washer/Dryer' in its amenities, directly fulfilling the requirement for in-unit laundry.",
+      "climbing_gym": "The listing is excellent for fitness proximity; it's only 0.8 miles from a climbing gym, and the building itself features an indoor lap pool and a rock climbing wall, strongly matching the 'close to climbing gym / active fitness' constraint.",
+      "commute": "The commute time to Downtown is 10 minutes, which is significantly below the maximum allowed commute of 30 minutes, making it highly convenient.",
+      "overall": "This apartment listing is an exceptional match for your requirements. It comfortably fits within your budget, provides the essential in-unit laundry, offers superior access to active fitness including an in-building climbing wall, and ensures a very short commute to Downtown. All key constraints are not just met, but often exceeded."
+    }
+  }
+}
