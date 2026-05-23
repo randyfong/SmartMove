@@ -1,0 +1,139 @@
+{
+  "run_id": "run_3354287bbb41",
+  "step": 8,
+  "step_name": "Search Recommendations Finalized",
+  "comment": "Logs the consolidated relocation report and final recommendations, storing the total count of evaluated listings, the number of approved listings, the top-choice selection, and the complete audit list.",
+  "timestamp": "2026-05-23T15:02:35.066953",
+  "data": {
+    "total_evaluated": 5,
+    "approved_count": 0,
+    "top_choice": null,
+    "all_results": [
+      {
+        "id": "list_nyc_001",
+        "title": "The Chelsea Highline Loft",
+        "price": 4200,
+        "address": "520 W 23rd St, New York, NY 10011",
+        "neighborhood": "Chelsea",
+        "walkability_score": 99,
+        "amenities": [
+          "In-unit Washer/Dryer",
+          "High-end Fitness Center",
+          "24/7 Doorman",
+          "Rooftop Terrace",
+          "Dishwasher"
+        ],
+        "commute_time": 15,
+        "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=60",
+        "approved": false,
+        "score": 45,
+        "reasoning": {
+          "budget": "The listing price of $4200 significantly exceeds the user's maximum budget of $3500, failing this critical constraint by $700.",
+          "laundry": "The listing explicitly includes 'In-unit Washer/Dryer' in its amenities, perfectly satisfying the user's requirement for in-unit laundry.",
+          "climbing_gym": "With a climbing gym distance of only 0.4 miles, this listing is exceptionally close to active fitness options, fully meeting the user's desire for proximity to such facilities. The description also highlights its proximity to 'premier climbing gyms'.",
+          "commute": "The commute time to Downtown is 15 minutes, which is well within the user's maximum allowed commute time of 30 minutes, meeting this constraint effectively.",
+          "overall": "While this apartment fulfills the user's requirements for in-unit laundry, proximity to active fitness, and an acceptable commute to Downtown, it fails to meet the critical budget constraint. The price of $4200 is $700 over the user's maximum budget of $3500, making it unsuitable despite its other attractive features."
+        }
+      },
+      {
+        "id": "list_nyc_002",
+        "title": "Williamsburg Industrial Loft",
+        "price": 3800,
+        "address": "250 Berry St, Brooklyn, NY 11249",
+        "neighborhood": "Williamsburg",
+        "walkability_score": 96,
+        "amenities": [
+          "In-unit Washer/Dryer",
+          "Rooftop Terrace",
+          "Dishwasher",
+          "Hardwood Floors",
+          "Pet Friendly"
+        ],
+        "commute_time": 20,
+        "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop&q=60",
+        "approved": false,
+        "score": 65,
+        "reasoning": {
+          "budget": "The apartment is listed at $3800, which exceeds the user's maximum budget of $3500 by $300, failing this critical constraint.",
+          "laundry": "The listing clearly states 'In-unit Washer/Dryer' in its amenities, perfectly meeting the user's requirement for in-unit laundry.",
+          "climbing_gym": "The apartment is located 0.6 miles from a climbing gym, which is a very short and convenient distance, fully satisfying the user's need to be close to active fitness options.",
+          "commute": "The commute time to Downtown is 20 minutes, which is well within the user's specified maximum of 30 minutes, successfully meeting this constraint.",
+          "overall": "This Williamsburg loft meets most of the user's key requirements, including in-unit laundry, excellent proximity to active fitness (climbing gym), and a comfortable commute time to Downtown. However, it significantly exceeds the user's maximum budget of $3500 with a price of $3800. Due to this critical financial mismatch, the listing is not approved, despite its many other attractive features."
+        }
+      },
+      {
+        "id": "list_nyc_003",
+        "title": "West Village Cozy Flat",
+        "price": 3100,
+        "address": "82 Perry St, New York, NY 10014",
+        "neighborhood": "West Village",
+        "walkability_score": 98,
+        "amenities": [
+          "Decorative Fireplace",
+          "Hardwood Floors",
+          "Dishwasher",
+          "Shared Garden Courtyard"
+        ],
+        "commute_time": 10,
+        "image_url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=60",
+        "approved": false,
+        "score": 75,
+        "reasoning": {
+          "budget": "The listing price of $3100 is well within your maximum budget of $3500, meeting this constraint successfully.",
+          "laundry": "The listing does not mention 'in-unit laundry' in its amenities. This is a critical miss as you explicitly required in-unit laundry.",
+          "climbing_gym": "The apartment is located 1.2 miles from a climbing gym, which is considered close and meets your requirement for proximity to active fitness.",
+          "commute": "The commute time to Downtown is 10 minutes, which is significantly less than your maximum allowed commute of 30 minutes, meeting this constraint.",
+          "overall": "While this apartment excels in budget, proximity to fitness, and commute time to Downtown, it critically fails on the mandatory requirement for in-unit laundry. Therefore, despite meeting most criteria, the listing cannot be approved."
+        }
+      },
+      {
+        "id": "list_nyc_004",
+        "title": "Astoria Courtyard Apartment",
+        "price": 2400,
+        "address": "30-15 31st Ave, Astoria, NY 11106",
+        "neighborhood": "Astoria",
+        "walkability_score": 90,
+        "amenities": [
+          "Shared Courtyard",
+          "Laundry in Building",
+          "Dishwasher"
+        ],
+        "commute_time": 28,
+        "image_url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&auto=format&fit=crop&q=60",
+        "approved": false,
+        "score": 55,
+        "reasoning": {
+          "budget": "The apartment's price of $2400 is well within the user's maximum budget of $3500, meeting this constraint fully.",
+          "laundry": "The listing indicates 'Laundry in Building' (shared facilities), but the user explicitly requires 'In-unit laundry'. Therefore, this critical requirement is not met.",
+          "climbing_gym": "The climbing gym is 3.2 miles away. While accessible, this distance is generally not considered 'close' enough to fully satisfy the user's explicit requirement for proximity to active fitness facilities for convenient, regular access.",
+          "commute": "The commute time to Downtown is 28 minutes, which is comfortably within the user's maximum allowance of 30 minutes, meeting this constraint fully.",
+          "overall": "The listing performs well on budget and commute time, aligning perfectly with these two constraints. However, it critically fails to meet the 'in-unit laundry' requirement, which is a hard 'True' constraint for the user, resulting in a disapproval. Furthermore, the 3.2-mile distance to the climbing gym does not strongly satisfy the 'must be close' active fitness requirement."
+        }
+      },
+      {
+        "id": "list_nyc_005",
+        "title": "Classic Upper West Side Studio",
+        "price": 2900,
+        "address": "160 W 73rd St, New York, NY 10023",
+        "neighborhood": "Upper West Side",
+        "walkability_score": 94,
+        "amenities": [
+          "Laundry in Building",
+          "Hardwood Floors",
+          "Dishwasher"
+        ],
+        "commute_time": 22,
+        "image_url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&auto=format&fit=crop&q=60",
+        "approved": false,
+        "score": 54,
+        "reasoning": {
+          "budget": "Approved: Monthly rent of $2,900 is within the requested maximum budget of $3,500.0.",
+          "laundry": "REJECTED: Building offers laundry, but it is shared coin-operated laundry rather than the required private in-unit setup.",
+          "climbing_gym": "Approved: Acceptable proximity. Gym is 2.1 miles away, walkable or a short bike ride.",
+          "commute": "Approved: Commute time to downtown is approximately 22 minutes, within the desired 30.0 min range.",
+          "overall": "This listing was rejected due to mismatch in requirements: in-unit laundry, gym proximity. Final compatibility score: 54/100."
+        }
+      }
+    ]
+  }
+}
