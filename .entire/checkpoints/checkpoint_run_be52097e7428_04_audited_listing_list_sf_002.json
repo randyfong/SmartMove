@@ -2,6 +2,7 @@
   "run_id": "run_be52097e7428",
   "step": 4,
   "step_name": "Audited Listing list_sf_002",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sf_002', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
   "timestamp": "2026-05-23T11:59:12.128537",
   "data": {
     "listing_id": "list_sf_002",

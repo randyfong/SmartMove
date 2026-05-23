@@ -112,6 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const traceMetaRunId = document.getElementById("trace-meta-runid");
     const traceMetaStep = document.getElementById("trace-meta-step");
     const traceMetaTime = document.getElementById("trace-meta-time");
+    const traceCommentBox = document.getElementById("trace-comment-box");
+    const traceCommentText = document.getElementById("trace-comment-text");
     const traceJsonCode = document.getElementById("trace-json-code");
 
     // -------------------------------------------------------------
@@ -838,6 +840,15 @@ document.addEventListener("DOMContentLoaded", () => {
         traceMetaRunId.textContent = checkpoint.run_id;
         traceMetaStep.textContent = checkpoint.step;
         traceMetaTime.textContent = new Date(checkpoint.timestamp).toLocaleString();
+        
+        // Display custom logged activity description comment
+        const comment = checkpoint.comment || (checkpoint.data && checkpoint.data.comment) || "";
+        if (comment) {
+            traceCommentText.textContent = comment;
+            traceCommentBox.style.display = "flex";
+        } else {
+            traceCommentBox.style.display = "none";
+        }
         
         // Print beautiful raw JSON trace content
         traceJsonCode.textContent = JSON.stringify(checkpoint, null, 2);

@@ -2,6 +2,7 @@
   "run_id": "run_15721234c967",
   "step": 2,
   "step_name": "Property Listings Fetched",
+  "comment": "Logs the raw apartment listings scraped or fetched from the database, listing their IDs, titles, rental prices, and street addresses.",
   "timestamp": "2026-05-23T12:42:29.851422",
   "data": {
     "listings_count": 5,

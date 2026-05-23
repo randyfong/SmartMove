@@ -2,6 +2,7 @@
   "run_id": "run_be52097e7428",
   "step": 1,
   "step_name": "Relocation Search Initialized",
+  "comment": "Logs the initialization of the relocation pipeline, capturing the user's input search parameters, constraints (budget, laundry, fitness, commute, query), and the system configuration for live/mock API states.",
   "timestamp": "2026-05-23T11:59:01.272034",
   "data": {
     "requirements": {

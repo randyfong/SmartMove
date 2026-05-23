@@ -37,7 +37,7 @@ class GitTraceLogger:
             run_git_command(["git", "config", "user.name", "SmartMove Agent"], cwd=self.workspace_path)
             run_git_command(["git", "config", "user.email", "agent@smartmove.ai"], cwd=self.workspace_path)
 
-    def write_checkpoint(self, run_id, step, step_name, data):
+    def write_checkpoint(self, run_id, step, step_name, data, comment=None):
         """
         Writes a trace checkpoint file and commits it via git.
         """
@@ -49,6 +49,7 @@ class GitTraceLogger:
             "run_id": run_id,
             "step": step,
             "step_name": step_name,
+            "comment": comment or f"Logs relocation agent activity for trace checkpoint: {step_name}.",
             "timestamp": timestamp,
             "data": data
         }
@@ -166,10 +167,13 @@ class RelocationAgent:
         run_id = f"run_{uuid.uuid4().hex[:12]}"
         
         # Step 1: Initialize
+        # [Checkpoint 1: Relocation Search Initialized]
+        # Logs the initialization of the relocation pipeline, capturing the user's input search parameters, constraints (budget, laundry, fitness, commute, query), and the system configuration for live/mock API states.
         self.logger.write_checkpoint(
             run_id=run_id,
             step=1,
             step_name="Relocation Search Initialized",
+            comment="Logs the initialization of the relocation pipeline, capturing the user's input search parameters, constraints (budget, laundry, fitness, commute, query), and the system configuration for live/mock API states.",
             data={
                 "requirements": requirements,
                 "api_modes": {
@@ -181,10 +185,13 @@ class RelocationAgent:
         
         # Step 2: Listing Scraping / Retrieval
         raw_listings = self._fetch_listings(requirements)
+        # [Checkpoint 2: Property Listings Fetched]
+        # Logs raw apartment listings scraped or fetched from the database, listing their IDs, titles, rental prices, and street addresses.
         self.logger.write_checkpoint(
             run_id=run_id,
             step=2,
             step_name="Property Listings Fetched",
+            comment="Logs the raw apartment listings scraped or fetched from the database, listing their IDs, titles, rental prices, and street addresses.",
             data={
                 "listings_count": len(raw_listings),
                 "listings": [
@@ -207,10 +214,13 @@ class RelocationAgent:
             audited_listings.append(audit_entry)
             
             # Write trace checkpoint for individual listing evaluation
+            # [Checkpoint 3 to 7: Audited Listing [ID]]
+            # Logs a granular, constraint-by-constraint audit evaluation of an individual listing, storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).
             self.logger.write_checkpoint(
                 run_id=run_id,
                 step=3 + index,
                 step_name=f"Audited Listing {listing['id']}",
+                comment=f"Logs a granular, constraint-by-constraint audit evaluation of the individual listing '{listing['id']}', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
                 data={
                     "listing_id": listing["id"],
                     "title": listing["title"],
@@ -249,10 +259,13 @@ class RelocationAgent:
         }
         
         # Write the final summary checkpoint
+        # [Checkpoint 8: Search Recommendations Finalized]
+        # Logs the consolidated relocation report and final recommendations, storing the total count of evaluated listings, the number of approved listings, the top-choice selection, and the complete audit list.
         self.logger.write_checkpoint(
             run_id=run_id,
             step=3 + len(raw_listings),
             step_name="Search Recommendations Finalized",
+            comment="Logs the consolidated relocation report and final recommendations, storing the total count of evaluated listings, the number of approved listings, the top-choice selection, and the complete audit list.",
             data=final_recommendation
         )
         

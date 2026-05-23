@@ -2,6 +2,7 @@
   "run_id": "run_15c1f7da871f",
   "step": 8,
   "step_name": "Search Recommendations Finalized",
+  "comment": "Logs the consolidated relocation report and final recommendations, storing the total count of evaluated listings, the number of approved listings, the top-choice selection, and the complete audit list.",
   "timestamp": "2026-05-23T13:04:50.100382",
   "data": {
     "total_evaluated": 5,
