@@ -1,0 +1,20 @@
+{
+  "run_id": "run_3354287bbb41",
+  "step": 4,
+  "step_name": "Audited Listing list_nyc_002",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_nyc_002', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T15:02:00.436975",
+  "data": {
+    "listing_id": "list_nyc_002",
+    "title": "Williamsburg Industrial Loft",
+    "approved": false,
+    "score": 65,
+    "reasoning": {
+      "budget": "The apartment is listed at $3800, which exceeds the user's maximum budget of $3500 by $300, failing this critical constraint.",
+      "laundry": "The listing clearly states 'In-unit Washer/Dryer' in its amenities, perfectly meeting the user's requirement for in-unit laundry.",
+      "climbing_gym": "The apartment is located 0.6 miles from a climbing gym, which is a very short and convenient distance, fully satisfying the user's need to be close to active fitness options.",
+      "commute": "The commute time to Downtown is 20 minutes, which is well within the user's specified maximum of 30 minutes, successfully meeting this constraint.",
+      "overall": "This Williamsburg loft meets most of the user's key requirements, including in-unit laundry, excellent proximity to active fitness (climbing gym), and a comfortable commute time to Downtown. However, it significantly exceeds the user's maximum budget of $3500 with a price of $3800. Due to this critical financial mismatch, the listing is not approved, despite its many other attractive features."
+    }
+  }
+}
