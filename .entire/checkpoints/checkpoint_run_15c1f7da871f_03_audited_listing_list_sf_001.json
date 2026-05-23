@@ -1,0 +1,20 @@
+{
+  "run_id": "run_15c1f7da871f",
+  "step": 3,
+  "step_name": "Audited Listing list_sf_001",
+  "timestamp": "2026-05-23T13:04:07.253165",
+  "data": {
+    "listing_id": "list_sf_001",
+    "title": "The Lumina Luxury Residences",
+    "approved": false,
+    "score": 25,
+    "reasoning": {
+      "budget": "The listing price of $3400 significantly exceeds the user's maximum budget of $2000. This is a substantial difference of $1400 (70% over budget), making it a critical mismatch.",
+      "laundry": "The user stated that in-unit laundry is not required. The listing includes 'In-unit Washer/Dryer,' which satisfies this constraint by providing the amenity without it being a disqualifier or requirement.",
+      "climbing_gym": "The user does not require proximity to a climbing gym or active fitness. The listing is located 0.8 miles from a climbing gym and features a 'High-end Fitness Center' and 'rock climbing wall' within the building, which well exceeds the user's non-requirement.",
+      "commute": "The listing's commute time to Downtown is 10 minutes, which is excellent and well within the user's maximum allowed commute time of 45 minutes.",
+      "search_query": "The listing is located in the South of Market (SOMA) neighborhood, which is known for its excellent public transportation access. The address is within walking distance to several BART stations (e.g., Embarcadero BART), effectively satisfying the preference to be 'close to BART'.",
+      "overall": "Despite meeting or exceeding all criteria related to laundry, fitness, commute, and proximity to BART, this listing is not approved due to a critical failure in meeting the budget constraint. The price of $3400 is substantially higher than the user's $2000 maximum, making it unsuitable regardless of its other positive attributes."
+    }
+  }
+}
