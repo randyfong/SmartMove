@@ -1,0 +1,42 @@
+{
+  "run_id": "run_3354287bbb41",
+  "step": 2,
+  "step_name": "Property Listings Fetched",
+  "comment": "Logs the raw apartment listings scraped or fetched from the database, listing their IDs, titles, rental prices, and street addresses.",
+  "timestamp": "2026-05-23T15:01:48.085623",
+  "data": {
+    "listings_count": 5,
+    "listings": [
+      {
+        "id": "list_nyc_001",
+        "title": "The Chelsea Highline Loft",
+        "price": 4200,
+        "address": "520 W 23rd St, New York, NY 10011"
+      },
+      {
+        "id": "list_nyc_002",
+        "title": "Williamsburg Industrial Loft",
+        "price": 3800,
+        "address": "250 Berry St, Brooklyn, NY 11249"
+      },
+      {
+        "id": "list_nyc_003",
+        "title": "West Village Cozy Flat",
+        "price": 3100,
+        "address": "82 Perry St, New York, NY 10014"
+      },
+      {
+        "id": "list_nyc_004",
+        "title": "Astoria Courtyard Apartment",
+        "price": 2400,
+        "address": "30-15 31st Ave, Astoria, NY 11106"
+      },
+      {
+        "id": "list_nyc_005",
+        "title": "Classic Upper West Side Studio",
+        "price": 2900,
+        "address": "160 W 73rd St, New York, NY 10023"
+      }
+    ]
+  }
+}
