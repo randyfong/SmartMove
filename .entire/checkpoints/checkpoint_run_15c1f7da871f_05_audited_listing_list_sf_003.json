@@ -1,0 +1,20 @@
+{
+  "run_id": "run_15c1f7da871f",
+  "step": 5,
+  "step_name": "Audited Listing list_sf_003",
+  "timestamp": "2026-05-23T13:04:31.622075",
+  "data": {
+    "listing_id": "list_sf_003",
+    "title": "SOMA Brick & Timber Loft",
+    "approved": false,
+    "score": 50,
+    "reasoning": {
+      "budget": "The listing price of $2900 significantly exceeds your maximum budget of $2000, failing this core requirement by $900.",
+      "laundry": "You indicated that in-unit laundry is not required. The listing includes an in-unit washer/dryer, which is an additional convenience but does not conflict with your constraint.",
+      "climbing_gym": "You stated that proximity to a climbing gym or active fitness is not a requirement. The listing is 1.1 miles from a climbing gym, which is neither a positive nor a negative against your specified preference.",
+      "commute": "The commute time to downtown is 12 minutes, which is well within your maximum acceptable commute of 45 minutes.",
+      "search_query": "The listing is in the SOMA neighborhood and the description mentions 'target commute lines,' indicating excellent access to public transport, including BART, which aligns well with your preference for being close to BART.",
+      "overall": "While the listing excels in commute time to downtown and proximity to BART, and doesn't conflict with your laundry or fitness preferences, the price of $2900 is considerably above your maximum budget of $2000. This significant budget mismatch makes the listing unsuitable despite its other attractive features."
+    }
+  }
+}
