@@ -1,0 +1,20 @@
+{
+  "run_id": "run_15c1f7da871f",
+  "step": 1,
+  "step_name": "Relocation Search Initialized",
+  "timestamp": "2026-05-23T13:03:59.209508",
+  "data": {
+    "requirements": {
+      "city": "San Francisco, CA",
+      "budget": 2000.0,
+      "requireLaundry": false,
+      "requireGym": false,
+      "maxCommute": 45.0,
+      "searchQuery": "close to bart"
+    },
+    "api_modes": {
+      "gemini_active": true,
+      "apify_active": true
+    }
+  }
+}
