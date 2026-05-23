@@ -1,0 +1,20 @@
+{
+  "run_id": "run_4a440210c26b",
+  "step": 6,
+  "step_name": "Audited Listing list_sf_004",
+  "timestamp": "2026-05-23T13:06:33.698347",
+  "data": {
+    "listing_id": "list_sf_004",
+    "title": "Classic Presidio Heights Edwardian",
+    "approved": true,
+    "score": 85,
+    "reasoning": {
+      "budget": "The listing price of $3600 is well within the user's maximum budget of $4500.",
+      "laundry": "The user does not require in-unit laundry ('In-unit laundry required: False'). The listing provides 'Coin-operated Laundry in Building', which fully satisfies this constraint.",
+      "climbing_gym": "The user explicitly stated that proximity to a climbing gym / active fitness is not required ('Must be close to climbing gym / active fitness: False'). Therefore, the listing's distance of 2.2 miles does not negatively impact its suitability for this criterion.",
+      "commute": "The commute time to Downtown is 25 minutes, which is comfortably below the user's maximum allowed commute of 45 minutes.",
+      "search_query": "The user's custom preference is to be 'close to BART'. Presidio Heights, where the listing is located, is not generally considered close to BART stations in San Francisco, meaning this additional search criterion is not met.",
+      "overall": "This listing meets all the user's primary constraints regarding budget, laundry, commute time, and non-requirement for climbing gym proximity. However, it falls short on the custom preference of being 'close to BART' as Presidio Heights is not well-served by BART. All hard requirements are met, leading to an 'approved' status, but the unmet custom preference reduces the overall score."
+    }
+  }
+}
