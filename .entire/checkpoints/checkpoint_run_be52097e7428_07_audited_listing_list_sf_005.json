@@ -1,0 +1,19 @@
+{
+  "run_id": "run_be52097e7428",
+  "step": 7,
+  "step_name": "Audited Listing list_sf_005",
+  "timestamp": "2026-05-23T11:59:29.132161",
+  "data": {
+    "listing_id": "list_sf_005",
+    "title": "Inner Sunset Judah Studio",
+    "approved": false,
+    "score": 25,
+    "reasoning": {
+      "budget": "The listing price of $2100 is well within the user's maximum budget of $3500, making this a perfect match for the budget constraint.",
+      "laundry": "The user explicitly requires in-unit laundry. The listing's amenities do not mention in-unit laundry, and based on the provided details, it is not available, thus failing this critical requirement.",
+      "climbing_gym": "The user requires the listing to be close to a climbing gym or active fitness. The climbing gym is located 3.5 miles away, which is generally not considered 'close' for daily or frequent active fitness activities, failing this constraint.",
+      "commute": "The user has a maximum commute time to Downtown of 20 minutes. The listing indicates a commute time of 35 minutes to Downtown, which significantly exceeds the user's limit.",
+      "overall": "This listing does not meet several key user requirements. While the price is well within budget, it fails on the critical needs for in-unit laundry, proximity to a climbing gym (3.5 miles is too far), and the commute time to Downtown (35 minutes) is much longer than the requested 20-minute maximum. Due to these significant mismatches, the listing is not approved."
+    }
+  }
+}
