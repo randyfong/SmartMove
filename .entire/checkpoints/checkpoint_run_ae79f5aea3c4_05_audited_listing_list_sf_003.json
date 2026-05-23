@@ -1,0 +1,21 @@
+{
+  "run_id": "run_ae79f5aea3c4",
+  "step": 5,
+  "step_name": "Audited Listing list_sf_003",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sf_003', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T14:55:10.627230",
+  "data": {
+    "listing_id": "list_sf_003",
+    "title": "SOMA Brick & Timber Loft",
+    "approved": true,
+    "score": 98,
+    "reasoning": {
+      "budget": "The listing price of $2900 is well within the user's maximum budget of $3500, leaving ample room.",
+      "laundry": "The listing explicitly states 'In-unit Washer/Dryer' in its amenities, perfectly meeting the required in-unit laundry constraint.",
+      "climbing_gym": "The listing is located 1.1 miles from a climbing gym, which is a very convenient distance for active fitness and meets the 'close to climbing gym / active fitness' requirement.",
+      "commute": "The commute time to Downtown is 12 minutes, which is significantly under the user's maximum allowed commute of 30 minutes.",
+      "search_query": "Located in SOMA (South of Market), this neighborhood is centrally positioned in San Francisco, offering excellent proximity to various entertainment venues, including theaters in nearby districts like Union Square, Civic Center, and Hayes Valley, satisfying the 'close to theaters' preference.",
+      "overall": "This listing is an outstanding match for the user's constraints. It is well within budget, provides the essential in-unit laundry, offers excellent proximity to active fitness options (climbing gym), and boasts a remarkably short commute to Downtown. The central SOMA location also effectively addresses the preference for being close to theaters, making it a highly suitable option."
+    }
+  }
+}
