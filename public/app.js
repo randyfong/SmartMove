@@ -503,6 +503,65 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 `;
             }
+
+            // Build matched selection criteria comments if approved
+            let matchedCriteriaHtml = '';
+            if (item.approved && item.reasoning) {
+                const matchedComments = [];
+                // Check each criterion
+                const criteria = [
+                    { key: 'budget', label: 'Budget' },
+                    { key: 'laundry', label: 'Laundry' },
+                    { key: 'climbing_gym', label: 'Active Fitness' },
+                    { key: 'commute', label: 'Commute' }
+                ];
+                
+                if (item.reasoning.search_query) {
+                    criteria.push({ key: 'search_query', label: 'Custom Preference' });
+                }
+                
+                criteria.forEach(c => {
+                    const comment = item.reasoning[c.key];
+                    if (comment && !comment.includes("REJECTED") && !comment.includes("FAIL") && !comment.toLowerCase().includes("fail") && !comment.toLowerCase().includes("exceeds") && !comment.toLowerCase().includes("lacks") && !comment.toLowerCase().includes("not meet")) {
+                        // Clean the comment prefix if it starts with Approved: or PASS:
+                        let cleanText = comment;
+                        if (comment.startsWith("Approved:")) {
+                            cleanText = comment.replace(/^Approved:\s*/, "");
+                        } else if (comment.startsWith("PASS:")) {
+                            cleanText = comment.replace(/^PASS:\s*/, "");
+                        }
+                        
+                        matchedComments.push(`
+                            <div class="matched-criterion-item">
+                                <span class="criterion-bullet"></span>
+                                <span class="comment-text"><strong>${c.label}:</strong> ${cleanText}</span>
+                            </div>
+                        `);
+                    }
+                });
+                
+                // Fallback to overall summary if no specific criteria were flagged as matched
+                if (matchedComments.length === 0 && item.reasoning.overall) {
+                    matchedComments.push(`
+                        <div class="matched-criterion-item">
+                            <span class="criterion-bullet"></span>
+                            <span class="comment-text">${item.reasoning.overall}</span>
+                        </div>
+                    `);
+                }
+                
+                matchedCriteriaHtml = `
+                    <div class="card-matched-criteria">
+                        <div class="matched-criteria-header">
+                            <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <span>Matched Criteria</span>
+                        </div>
+                        <div class="matched-criteria-list">
+                            ${matchedComments.join('')}
+                        </div>
+                    </div>
+                `;
+            }
             
             card.innerHTML = `
                 <div class="card-img-wrapper">
@@ -527,6 +586,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     </div>
                     ${rejectionReasonCommentsHtml}
+                    ${matchedCriteriaHtml}
                 </div>
                 <div class="card-audit-status-bar">
                     ${item.approved 
