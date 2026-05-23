@@ -1,0 +1,20 @@
+{
+  "run_id": "run_3354287bbb41",
+  "step": 5,
+  "step_name": "Audited Listing list_nyc_003",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_nyc_003', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T15:02:09.649140",
+  "data": {
+    "listing_id": "list_nyc_003",
+    "title": "West Village Cozy Flat",
+    "approved": false,
+    "score": 75,
+    "reasoning": {
+      "budget": "The listing price of $3100 is well within your maximum budget of $3500, meeting this constraint successfully.",
+      "laundry": "The listing does not mention 'in-unit laundry' in its amenities. This is a critical miss as you explicitly required in-unit laundry.",
+      "climbing_gym": "The apartment is located 1.2 miles from a climbing gym, which is considered close and meets your requirement for proximity to active fitness.",
+      "commute": "The commute time to Downtown is 10 minutes, which is significantly less than your maximum allowed commute of 30 minutes, meeting this constraint.",
+      "overall": "While this apartment excels in budget, proximity to fitness, and commute time to Downtown, it critically fails on the mandatory requirement for in-unit laundry. Therefore, despite meeting most criteria, the listing cannot be approved."
+    }
+  }
+}
