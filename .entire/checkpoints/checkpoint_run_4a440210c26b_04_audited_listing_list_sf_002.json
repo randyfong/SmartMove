@@ -1,0 +1,20 @@
+{
+  "run_id": "run_4a440210c26b",
+  "step": 4,
+  "step_name": "Audited Listing list_sf_002",
+  "timestamp": "2026-05-23T13:06:13.314820",
+  "data": {
+    "listing_id": "list_sf_002",
+    "title": "Vibrant Mission District Oasis",
+    "approved": true,
+    "score": 98,
+    "reasoning": {
+      "budget": "The listing price of $3250 is well within the user's maximum budget of $4500, leaving a considerable buffer.",
+      "laundry": "The user explicitly stated that in-unit laundry is not required. The listing does not mention in-unit laundry, which perfectly matches this constraint.",
+      "climbing_gym": "The user specified that being close to a climbing gym/active fitness is not required. The listing is actually very close (0.3 miles), which is a positive but not a required factor, thus aligning with the constraint.",
+      "commute": "The commute time to Downtown is 15 minutes, which is significantly under the user's maximum allowed commute time of 45 minutes.",
+      "search_query": "The apartment is located in the Mission District, a neighborhood renowned for its excellent BART access with multiple stations (e.g., 16th Street Mission, 24th Street Mission) providing direct routes, fulfilling the preference for being close to BART.",
+      "overall": "This listing is an excellent fit for the user's profile. It comfortably meets the budget, significantly exceeds the commute time requirement, aligns perfectly with the non-requirements for laundry and climbing gym proximity, and strongly satisfies the preference for BART access due to its prime Mission District location. All constraints are either met or exceeded."
+    }
+  }
+}
