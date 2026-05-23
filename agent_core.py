@@ -66,89 +66,260 @@ class GitTraceLogger:
         
         return checkpoint_content
 
-# High fidelity mock listings database
-MOCK_LISTINGS = [
-    {
-        "id": "list_sf_001",
-        "title": "The Lumina Luxury Residences",
-        "price": 3400,
-        "beds": 1,
-        "baths": 1,
-        "address": "201 Folsom St, San Francisco, CA 94105",
-        "neighborhood": "South of Market (SOMA)",
-        "walkability_score": 95,
-        "amenities": ["In-unit Washer/Dryer", "High-end Fitness Center", "24/7 Doorman", "Rooftop Terrace", "Dishwasher", "Valet Parking"],
-        "climbing_gym_distance_miles": 0.8,
-        "grocery_store_distance_miles": 0.2,
-        "commute_time_downtown_mins": 10,
-        "description": "Experience luxury living at the iconic Lumina SOMA. This high-floor unit features floor-to-ceiling windows with panoramic city views, high-end Gaggenau appliances, Nest learning thermostat, and gorgeous hardwood flooring. Building amenities are world-class including an indoor lap pool, rock climbing wall, and absolute premium security.",
-        "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=60"
-    },
-    {
-        "id": "list_sf_002",
-        "title": "Vibrant Mission District Oasis",
-        "price": 3250,
-        "beds": 1,
-        "baths": 1,
-        "address": "850 Valencia St, San Francisco, CA 94110",
-        "neighborhood": "Mission District",
-        "walkability_score": 98,
-        "amenities": ["Shared Rooftop Garden", "Secure Bike Storage", "Dishwasher", "Hardwood Floors", "Pet Friendly"],
-        "climbing_gym_distance_miles": 0.3,
-        "grocery_store_distance_miles": 0.1,
-        "commute_time_downtown_mins": 15,
-        "description": "A sun-drenched, beautifully updated apartment in the heart of Valencia Corridor. Just steps away from San Francisco's most beloved restaurants, independent cafes, and Bi-Rite Market. Extremely tall ceilings, large bay windows, and private bike storage makes this an absolute haven for active professionals.",
-        "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop&q=60"
-    },
-    {
-        "id": "list_sf_003",
-        "title": "SOMA Brick & Timber Loft",
-        "price": 2900,
-        "beds": "Loft",
-        "baths": 1,
-        "address": "455 10th St, San Francisco, CA 94103",
-        "neighborhood": "South of Market (SOMA)",
-        "walkability_score": 92,
-        "amenities": ["In-unit Washer/Dryer", "Shared Garden Courtyard", "Exposed Brick Walls", "Dishwasher", "Walk-in Closet"],
-        "climbing_gym_distance_miles": 1.1,
-        "grocery_store_distance_miles": 0.15,
-        "commute_time_downtown_mins": 12,
-        "description": "Gorgeous industrial loft featuring double-tall ceilings, original timber beams, and exposed red brick. The open floor plan includes a modern chef's kitchen, custom bookshelves, and a cozy mezzanine bedroom. Exceptionally convenient location right around the block from Trader Joe's and target commute lines.",
-        "image_url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=60"
-    },
-    {
-        "id": "list_sf_004",
-        "title": "Classic Presidio Heights Edwardian",
-        "price": 3600,
-        "beds": 1,
-        "baths": 1,
-        "address": "3215 Sacramento St, San Francisco, CA 94115",
-        "neighborhood": "Presidio Heights",
-        "walkability_score": 88,
-        "amenities": ["Decorative Fireplace", "Hardwood Floors", "Dishwasher", "Coin-operated Laundry in Building"],
-        "climbing_gym_distance_miles": 2.2,
-        "grocery_store_distance_miles": 0.3,
-        "commute_time_downtown_mins": 25,
-        "description": "Period charm meets modern style. This stunning Edwardian flat retains historical details such as crown moldings, box-beam ceilings, and a built-in hutch. Located on an extremely quiet residential street within easy walking distance to Laurel Village, Presidio trails, and high-end dining.",
-        "image_url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&auto=format&fit=crop&q=60"
-    },
-    {
-        "id": "list_sf_005",
-        "title": "Inner Sunset Judah Studio",
-        "price": 2100,
-        "beds": "Studio",
-        "baths": 1,
-        "address": "1420 Judah St, San Francisco, CA 94122",
-        "neighborhood": "Inner Sunset",
-        "walkability_score": 85,
-        "amenities": ["Shared Backyard Access", "All Utilities Included", "Hardwood Floors"],
-        "climbing_gym_distance_miles": 3.5,
-        "grocery_store_distance_miles": 0.4,
-        "commute_time_downtown_mins": 35,
-        "description": "Charming garden studio located in the highly desirable Inner Sunset. Flooded with natural light, this unit features a renovated kitchenette and private entrance opening directly to a beautiful shared backyard. Directly on the N-Judah Muni line, ideal for students or quiet commuters.",
-        "image_url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&auto=format&fit=crop&q=60"
-    }
-]
+# High fidelity mock listings database by city
+MOCK_LISTINGS_BY_CITY = {
+    "San Francisco, CA": [
+        {
+            "id": "list_sf_001",
+            "title": "The Lumina Luxury Residences",
+            "price": 3400,
+            "beds": 1,
+            "baths": 1,
+            "address": "201 Folsom St, San Francisco, CA 94105",
+            "neighborhood": "South of Market (SOMA)",
+            "walkability_score": 95,
+            "amenities": ["In-unit Washer/Dryer", "High-end Fitness Center", "24/7 Doorman", "Rooftop Terrace", "Dishwasher", "Valet Parking"],
+            "climbing_gym_distance_miles": 0.8,
+            "grocery_store_distance_miles": 0.2,
+            "commute_time_downtown_mins": 10,
+            "description": "Experience luxury living at the iconic Lumina SOMA. This high-floor unit features floor-to-ceiling windows with panoramic city views, high-end Gaggenau appliances, Nest learning thermostat, and gorgeous hardwood flooring. Building amenities are world-class including an indoor lap pool, rock climbing wall, and absolute premium security.",
+            "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=60"
+        },
+        {
+            "id": "list_sf_002",
+            "title": "Vibrant Mission District Oasis",
+            "price": 3250,
+            "beds": 1,
+            "baths": 1,
+            "address": "850 Valencia St, San Francisco, CA 94110",
+            "neighborhood": "Mission District",
+            "walkability_score": 98,
+            "amenities": ["Shared Rooftop Garden", "Secure Bike Storage", "Dishwasher", "Hardwood Floors", "Pet Friendly"],
+            "climbing_gym_distance_miles": 0.3,
+            "grocery_store_distance_miles": 0.1,
+            "commute_time_downtown_mins": 15,
+            "description": "A sun-drenched, beautifully updated apartment in the heart of Valencia Corridor. Just steps away from San Francisco's most beloved restaurants, independent cafes, and Bi-Rite Market. Extremely tall ceilings, large bay windows, and private bike storage makes this an absolute haven for active professionals.",
+            "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop&q=60"
+        },
+        {
+            "id": "list_sf_003",
+            "title": "SOMA Brick & Timber Loft",
+            "price": 2900,
+            "beds": "Loft",
+            "baths": 1,
+            "address": "455 10th St, San Francisco, CA 94103",
+            "neighborhood": "South of Market (SOMA)",
+            "walkability_score": 92,
+            "amenities": ["In-unit Washer/Dryer", "Shared Garden Courtyard", "Exposed Brick Walls", "Dishwasher", "Walk-in Closet"],
+            "climbing_gym_distance_miles": 1.1,
+            "grocery_store_distance_miles": 0.15,
+            "commute_time_downtown_mins": 12,
+            "description": "Gorgeous industrial loft featuring double-tall ceilings, original timber beams, and exposed red brick. The open floor plan includes a modern chef's kitchen, custom bookshelves, and a cozy mezzanine bedroom. Exceptionally convenient location right around the block from Trader Joe's and target commute lines.",
+            "image_url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=60"
+        },
+        {
+            "id": "list_sf_004",
+            "title": "Classic Presidio Heights Edwardian",
+            "price": 3600,
+            "beds": 1,
+            "baths": 1,
+            "address": "3215 Sacramento St, San Francisco, CA 94115",
+            "neighborhood": "Presidio Heights",
+            "walkability_score": 88,
+            "amenities": ["Decorative Fireplace", "Hardwood Floors", "Dishwasher", "Coin-operated Laundry in Building"],
+            "climbing_gym_distance_miles": 2.2,
+            "grocery_store_distance_miles": 0.3,
+            "commute_time_downtown_mins": 25,
+            "description": "Period charm meets modern style. This stunning Edwardian flat retains historical details such as crown moldings, box-beam ceilings, and a built-in hutch. Located on an extremely quiet residential street within easy walking distance to Laurel Village, Presidio trails, and high-end dining.",
+            "image_url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&auto=format&fit=crop&q=60"
+        },
+        {
+            "id": "list_sf_005",
+            "title": "Inner Sunset Judah Studio",
+            "price": 2100,
+            "beds": "Studio",
+            "baths": 1,
+            "address": "1420 Judah St, San Francisco, CA 94122",
+            "neighborhood": "Inner Sunset",
+            "walkability_score": 85,
+            "amenities": ["Shared Backyard Access", "All Utilities Included", "Hardwood Floors"],
+            "climbing_gym_distance_miles": 3.5,
+            "grocery_store_distance_miles": 0.4,
+            "commute_time_downtown_mins": 35,
+            "description": "Charming garden studio located in the highly desirable Inner Sunset. Flooded with natural light, this unit features a renovated kitchenette and private entrance opening directly to a beautiful shared backyard. Directly on the N-Judah Muni line, ideal for students or quiet commuters.",
+            "image_url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&auto=format&fit=crop&q=60"
+        }
+    ],
+    "New York City, NY": [
+        {
+            "id": "list_nyc_001",
+            "title": "The Chelsea Highline Loft",
+            "price": 4200,
+            "beds": 1,
+            "baths": 1,
+            "address": "520 W 23rd St, New York, NY 10011",
+            "neighborhood": "Chelsea",
+            "walkability_score": 99,
+            "amenities": ["In-unit Washer/Dryer", "High-end Fitness Center", "24/7 Doorman", "Rooftop Terrace", "Dishwasher"],
+            "climbing_gym_distance_miles": 0.4,
+            "grocery_store_distance_miles": 0.1,
+            "commute_time_downtown_mins": 15,
+            "description": "Stunning loft style living right next to the Highline in Chelsea. This gorgeous home features soaring ceilings, a gourmet kitchen with stainless steel appliances, and a luxurious bathroom. Perfectly located near Chelsea Piers, world-class art galleries, and premier climbing gyms.",
+            "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=60"
+        },
+        {
+            "id": "list_nyc_002",
+            "title": "Williamsburg Industrial Loft",
+            "price": 3800,
+            "beds": "Loft",
+            "baths": 1,
+            "address": "250 Berry St, Brooklyn, NY 11249",
+            "neighborhood": "Williamsburg",
+            "walkability_score": 96,
+            "amenities": ["In-unit Washer/Dryer", "Rooftop Terrace", "Dishwasher", "Hardwood Floors", "Pet Friendly"],
+            "climbing_gym_distance_miles": 0.6,
+            "grocery_store_distance_miles": 0.15,
+            "commute_time_downtown_mins": 20,
+            "description": "Authentic brick and timber loft in premier North Williamsburg. Featuring exposed brick walls, factory-style windows, and high timber ceilings. Outstanding neighborhood with fantastic cafes, boutique shops, and excellent access to climbing and fitness centers.",
+            "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop&q=60"
+        },
+        {
+            "id": "list_nyc_003",
+            "title": "West Village Cozy Flat",
+            "price": 3100,
+            "beds": "Studio",
+            "baths": 1,
+            "address": "82 Perry St, New York, NY 10014",
+            "neighborhood": "West Village",
+            "walkability_score": 98,
+            "amenities": ["Decorative Fireplace", "Hardwood Floors", "Dishwasher", "Shared Garden Courtyard"],
+            "climbing_gym_distance_miles": 1.2,
+            "grocery_store_distance_miles": 0.25,
+            "commute_time_downtown_mins": 10,
+            "description": "Classic West Village charm on one of the neighborhood's most coveted streets. This delightful flat features a decorative fireplace, beautiful exposed brick, and hardwood floors. Extremely quiet, safe, and steps away from premium dining and public transit.",
+            "image_url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=60"
+        },
+        {
+            "id": "list_nyc_004",
+            "title": "Astoria Courtyard Apartment",
+            "price": 2400,
+            "beds": 1,
+            "baths": 1,
+            "address": "30-15 31st Ave, Astoria, NY 11106",
+            "neighborhood": "Astoria",
+            "walkability_score": 90,
+            "amenities": ["Shared Courtyard", "Laundry in Building", "Dishwasher"],
+            "climbing_gym_distance_miles": 3.2,
+            "grocery_store_distance_miles": 0.3,
+            "commute_time_downtown_mins": 28,
+            "description": "Spacious and sunny 1-bedroom flat in Astoria's most active avenue. Enjoy a lovely shared garden courtyard, spacious living room, and high-speed internet capability. Only a short walk to the N/W subway lines for a quick and simple commute to midtown.",
+            "image_url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&auto=format&fit=crop&q=60"
+        },
+        {
+            "id": "list_nyc_005",
+            "title": "Classic Upper West Side Studio",
+            "price": 2900,
+            "beds": "Studio",
+            "baths": 1,
+            "address": "160 W 73rd St, New York, NY 10023",
+            "neighborhood": "Upper West Side",
+            "walkability_score": 94,
+            "amenities": ["Laundry in Building", "Hardwood Floors", "Dishwasher"],
+            "climbing_gym_distance_miles": 2.1,
+            "grocery_store_distance_miles": 0.4,
+            "commute_time_downtown_mins": 22,
+            "description": "Lovely pre-war studio apartment in an excellent Upper West Side co-op. Generous living space, soaring ceilings, separate kitchen, and clean updates. Extremely convenient location close to Central Park, Riverside Park, and top-tier fitness venues.",
+            "image_url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&auto=format&fit=crop&q=60"
+        }
+    ],
+    "Seattle, WA": [
+        {
+            "id": "list_sea_001",
+            "title": "Capitol Hill Modern Apartment",
+            "price": 2800,
+            "beds": 1,
+            "baths": 1,
+            "address": "1115 E Pike St, Seattle, WA 98122",
+            "neighborhood": "Capitol Hill",
+            "walkability_score": 96,
+            "amenities": ["In-unit Washer/Dryer", "Rooftop BBQ", "Fitness Center", "Dishwasher", "Secure Bike Room"],
+            "climbing_gym_distance_miles": 0.5,
+            "grocery_store_distance_miles": 0.15,
+            "commute_time_downtown_mins": 12,
+            "description": "Live in the center of Capitol Hill's vibrant Pike-Pine corridor. High end modern finishes, floor-to-ceiling windows, private washer and dryer, and an amazing rooftop terrace with 360 views of Seattle skyline, Space Needle, and Mt. Rainier.",
+            "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=60"
+        },
+        {
+            "id": "list_sea_002",
+            "title": "Fremont Brick Loft",
+            "price": 2400,
+            "beds": "Loft",
+            "baths": 1,
+            "address": "3400 Phinney Ave N, Seattle, WA 98103",
+            "neighborhood": "Fremont",
+            "walkability_score": 93,
+            "amenities": ["In-unit Washer/Dryer", "Shared Courtyard", "Dishwasher", "Pet Friendly", "Exposed Timber"],
+            "climbing_gym_distance_miles": 0.8,
+            "grocery_store_distance_miles": 0.2,
+            "commute_time_downtown_mins": 18,
+            "description": "Beautiful industrial loft in the heart of Fremont, the Center of the Universe. Excellent walkability to top-rated cafes, Burke-Gilman Trail, Fremont Troll, and premier climbing gyms.",
+            "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop&q=60"
+        },
+        {
+            "id": "list_sea_003",
+            "title": "Ballard Garden Studio",
+            "price": 1800,
+            "beds": "Studio",
+            "baths": 1,
+            "address": "5400 Ballard Ave NW, Seattle, WA 98107",
+            "neighborhood": "Ballard",
+            "walkability_score": 94,
+            "amenities": ["Shared Backyard", "Laundry in Building", "Hardwood Floors", "Secure Entry"],
+            "climbing_gym_distance_miles": 1.5,
+            "grocery_store_distance_miles": 0.35,
+            "commute_time_downtown_mins": 25,
+            "description": "Charming garden studio in historical Ballard Avenue. Features natural light, renovated bathroom, shared patio access, and easy walking to Ballard Locks, Sunday Farmers Market, and active fitness gyms.",
+            "image_url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=60"
+        }
+    ],
+    "Austin, TX": [
+        {
+            "id": "list_aus_001",
+            "title": "Downtown Austin Luxury Condo",
+            "price": 3200,
+            "beds": 1,
+            "baths": 1,
+            "address": "360 Nueces St, Austin, TX 78701",
+            "neighborhood": "Downtown Austin",
+            "walkability_score": 92,
+            "amenities": ["In-unit Washer/Dryer", "Resort Pool", "Fitness Center", "Dishwasher", "24/7 Concierge", "Secure Parking"],
+            "climbing_gym_distance_miles": 0.7,
+            "grocery_store_distance_miles": 0.3,
+            "commute_time_downtown_mins": 5,
+            "description": "Luxury living in Austin's core. Features private terrace, floor-to-ceiling windows, modern kitchen appliances, and building pool overlooking Town Lake. Outstanding proximity to climbing gyms, Lady Bird Lake hiking trails, and Lady Bird trail system.",
+            "image_url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&auto=format&fit=crop&q=60"
+        },
+        {
+            "id": "list_aus_002",
+            "title": "East Austin Hip Bungalow Flat",
+            "price": 2200,
+            "beds": 1,
+            "baths": 1,
+            "address": "1400 E 6th St, Austin, TX 78702",
+            "neighborhood": "East Austin",
+            "walkability_score": 89,
+            "amenities": ["In-unit Washer/Dryer", "Private Patio", "Dishwasher", "Pet Friendly", "Hardwood Floors"],
+            "climbing_gym_distance_miles": 1.2,
+            "grocery_store_distance_miles": 0.25,
+            "commute_time_downtown_mins": 10,
+            "description": "Live in one of Austin's hippest neighborhood corridors. This modern bungalow flat features private outdoor space, custom design details, and is within walking distance to the absolute best East Austin restaurants, bars, and active fitness spaces.",
+            "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop&q=60"
+        }
+    ]
+}
+
+# Keep original MOCK_LISTINGS variable referencing SF for backward-compatibility
+MOCK_LISTINGS = MOCK_LISTINGS_BY_CITY["San Francisco, CA"]
 
 class RelocationAgent:
     def __init__(self, gemini_api_key=None, apify_token=None, trace_logger=None):
@@ -283,9 +454,8 @@ class RelocationAgent:
         Fetches apartment listings based on city.
         Falls back to high-fidelity local mock data.
         """
-        # In a fully connected app, we could call Apify here.
-        # But for reliability, high-fidelity mock databases ensure consistent premium demo content.
-        return MOCK_LISTINGS
+        city = requirements.get("city", "San Francisco, CA")
+        return MOCK_LISTINGS_BY_CITY.get(city, MOCK_LISTINGS_BY_CITY["San Francisco, CA"])
 
     def _evaluate_listing(self, listing: dict, reqs: dict):
         """

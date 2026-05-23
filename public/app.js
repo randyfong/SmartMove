@@ -634,6 +634,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sortedCheckpoints.forEach(cp => {
             const tr = document.createElement("tr");
+            if (cp.step === 1 || cp.step === "1") {
+                tr.classList.add("step-1-row");
+            }
             
             const shortCommit = cp.git_commit ? cp.git_commit.substring(0, 8) : "uncommitted";
             const commitMessage = cp.git_message || "Active working directory state";
@@ -713,9 +716,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Bind accordion/reasons details
-        // Find corresponding trace in git checkpoints
+        // Find corresponding trace in git checkpoints matching the current search run
         const checkpoint = state.checkpoints.find(cp => 
-            cp.step_name.includes(item.id) || (cp.data && cp.data.listing_id === item.id)
+            (cp.run_id === state.currentRun) && 
+            (cp.step_name.includes(item.id) || (cp.data && cp.data.listing_id === item.id))
         );
 
         if (checkpoint && checkpoint.data) {
