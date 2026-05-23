@@ -1,0 +1,20 @@
+{
+  "run_id": "run_97bca60a9f3c",
+  "step": 5,
+  "step_name": "Audited Listing list_sf_003",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sf_003', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T14:34:31.236321",
+  "data": {
+    "listing_id": "list_sf_003",
+    "title": "SOMA Brick & Timber Loft",
+    "approved": true,
+    "score": 98,
+    "reasoning": {
+      "budget": "The listing price of $2900 is well within the user's maximum budget of $3500.",
+      "laundry": "The listing explicitly states 'In-unit Washer/Dryer' in its amenities, directly meeting the user's requirement for in-unit laundry.",
+      "climbing_gym": "The apartment is located 1.1 miles from a climbing gym, which is a very close and convenient distance, satisfying the requirement to be near active fitness options.",
+      "commute": "The commute time to Downtown is 12 minutes, which is significantly under the user's maximum allowed commute of 30 minutes.",
+      "overall": "This apartment listing is an excellent fit for the user's constraints. It is well within budget, provides in-unit laundry, is conveniently located near a climbing gym (1.1 miles), and offers a very short commute to Downtown (12 minutes). All critical requirements are perfectly met."
+    }
+  }
+}
