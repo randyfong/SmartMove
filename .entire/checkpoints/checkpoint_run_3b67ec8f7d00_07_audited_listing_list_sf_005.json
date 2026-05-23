@@ -1,0 +1,21 @@
+{
+  "run_id": "run_3b67ec8f7d00",
+  "step": 7,
+  "step_name": "Audited Listing list_sf_005",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sf_005', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T15:05:59.827299",
+  "data": {
+    "listing_id": "list_sf_005",
+    "title": "Inner Sunset Judah Studio",
+    "approved": false,
+    "score": 35,
+    "reasoning": {
+      "budget": "The listing price of $2100 is well within your maximum budget of $3600. This criterion is met.",
+      "laundry": "You require in-unit laundry. The listing amenities do not mention in-unit laundry; therefore, this critical requirement is not met.",
+      "climbing_gym": "You explicitly stated that being close to a climbing gym / active fitness is not required. The listing's distance to a climbing gym (3.5 miles) is therefore irrelevant to your preference, and this non-requirement is satisfied.",
+      "commute": "Your maximum commute to Downtown is 30 minutes. The listing indicates a 35-minute commute time to Downtown, which exceeds your limit. This critical requirement is not met.",
+      "search_query": "You have an additional preference for a listing with a garage. The apartment listing does not mention the availability of a garage.",
+      "overall": "This listing is not approved primarily due to failing two critical requirements: the absence of in-unit laundry and a commute time to Downtown (35 minutes) that exceeds your 30-minute maximum. While the price is well within budget and the climbing gym proximity is not a concern, the lack of in-unit laundry and the longer commute time are significant drawbacks. Additionally, your preference for a garage is not met."
+    }
+  }
+}
