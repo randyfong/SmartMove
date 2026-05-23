@@ -366,7 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 addLog("git", `Agent trace checkpoints committed into git history for audit tracking.`, "git");
                 
                 // Stop loaders and render
-                btnRunText.textContent = "Execute Relocation Search";
+                btnRunText.textContent = "Start Search";
                 btnRunAgent.disabled = false;
                 btnRunLoader.classList.add("hidden");
 
@@ -378,7 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error(err);
             addLog("system", `Relocation Pipeline Failed: ${err.message}`, "error");
             
-            btnRunText.textContent = "Execute Relocation Search";
+            btnRunText.textContent = "Start Search";
             btnRunAgent.disabled = false;
             btnRunLoader.classList.add("hidden");
             resetPipelineSteps();
