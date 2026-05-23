@@ -1,0 +1,21 @@
+{
+  "run_id": "run_5325fc81f82a",
+  "step": 1,
+  "step_name": "Relocation Search Initialized",
+  "comment": "Logs the initialization of the relocation pipeline, capturing the user's input search parameters, constraints (budget, laundry, fitness, commute, query), and the system configuration for live/mock API states.",
+  "timestamp": "2026-05-23T14:53:42.562935",
+  "data": {
+    "requirements": {
+      "city": "New York City, NY",
+      "budget": 3500.0,
+      "requireLaundry": true,
+      "requireGym": true,
+      "maxCommute": 30.0,
+      "searchQuery": ""
+    },
+    "api_modes": {
+      "gemini_active": true,
+      "apify_active": true
+    }
+  }
+}
