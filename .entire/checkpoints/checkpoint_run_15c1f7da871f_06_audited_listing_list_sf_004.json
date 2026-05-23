@@ -1,0 +1,20 @@
+{
+  "run_id": "run_15c1f7da871f",
+  "step": 6,
+  "step_name": "Audited Listing list_sf_004",
+  "timestamp": "2026-05-23T13:04:40.363404",
+  "data": {
+    "listing_id": "list_sf_004",
+    "title": "Classic Presidio Heights Edwardian",
+    "approved": false,
+    "score": 25,
+    "reasoning": {
+      "budget": "The listing price of $3600 significantly exceeds the user's maximum budget of $2000, making this a critical mismatch.",
+      "laundry": "The user does not require in-unit laundry, and the listing provides coin-operated laundry in the building, which satisfies this constraint.",
+      "climbing_gym": "The user does not require the listing to be close to a climbing gym or active fitness, so the distance of 2.2 miles is not a concern and meets the user's non-requirement.",
+      "commute": "The commute time to Downtown is 25 minutes, which is well within the user's maximum allowed commute of 45 minutes.",
+      "search_query": "The user's custom preference is 'close to bart'. The 'Presidio Heights' neighborhood is generally not considered close to BART stations and would typically require a bus transfer to access BART, thus not meeting this preference.",
+      "overall": "The listing is not approved primarily due to the severe budget mismatch, being $1600 over the user's limit. Additionally, the preference for being close to BART is not met, as Presidio Heights is not a BART-accessible neighborhood. While other criteria like laundry, climbing gym proximity, and commute time are satisfied, the critical financial and custom preference shortfalls make this listing unsuitable."
+    }
+  }
+}
