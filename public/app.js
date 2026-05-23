@@ -453,7 +453,6 @@ document.addEventListener("DOMContentLoaded", () => {
             let rejectionReasonCommentsHtml = '';
             if (!item.approved && item.reasoning) {
                 const failedComments = [];
-                // Check each criterion
                 const criteria = [
                     { key: 'budget', label: 'Budget' },
                     { key: 'laundry', label: 'Laundry' },
@@ -461,9 +460,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     { key: 'commute', label: 'Commute' }
                 ];
                 
+                if (item.reasoning.search_query) {
+                    criteria.push({ key: 'search_query', label: 'Additional Search Criteria' });
+                }
+                
                 criteria.forEach(c => {
                     const comment = item.reasoning[c.key];
-                    if (comment && (comment.includes("REJECTED") || comment.includes("FAIL") || comment.toLowerCase().includes("fail") || comment.toLowerCase().includes("exceeds") || comment.toLowerCase().includes("lacks") || comment.toLowerCase().includes("not meet"))) {
+                    if (comment && (comment.includes("REJECTED") || comment.includes("FAIL") || comment.toLowerCase().includes("fail") || comment.toLowerCase().includes("exceeds") || comment.toLowerCase().includes("lacks") || comment.toLowerCase().includes("not meet") || comment.toLowerCase().includes("not mention") || comment.toLowerCase().includes("not include") || comment.toLowerCase().includes("no mention") || comment.toLowerCase().includes("does not") || comment.toLowerCase().includes("mismatch") || comment.toLowerCase().includes("unmet"))) {
                         // Let's clean the comment prefix if it starts with REJECTED:
                         let cleanText = comment;
                         if (comment.startsWith("REJECTED:")) {

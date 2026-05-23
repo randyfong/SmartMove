@@ -355,14 +355,35 @@ You MUST respond with a JSON object in this exact schema (no additional wrapping
                         text_content = text_content[7:]
                     if text_content.endswith("```"):
                         text_content = text_content[:-3]
-                    return json.loads(text_content.strip())
+                    eval_data = json.loads(text_content.strip())
+                    # Defensive parsing: Ensure search_query exists in reasoning if requested
+                    if search_query and "reasoning" in eval_data:
+                        if "search_query" not in eval_data["reasoning"]:
+                            # Run local keyword check to populate it defensively
+                            mock_res = self._mock_evaluation(listing, max_budget, require_laundry, require_gym, max_commute, search_query)
+                            eval_data["reasoning"]["search_query"] = mock_res["reasoning"].get("search_query", "")
+                            
+                            # If local evaluation marked it unapproved due to search query mismatch, enforce it
+                            if not mock_res.get("approved", True):
+                                eval_data["approved"] = False
+                                if eval_data.get("score", 100) > 70:
+                                    eval_data["score"] = max(0, eval_data["score"] - 30)
+                                    
+                            # If overall also didn't mention it, append a note
+                            if "overall" in eval_data["reasoning"] and "custom preference" not in eval_data["reasoning"]["overall"].lower():
+                                matched = "matches" in mock_res["reasoning"].get("search_query", "").lower() or "approved" in mock_res["reasoning"].get("search_query", "").lower()
+                                if matched:
+                                    eval_data["reasoning"]["overall"] += f" Note that the listing successfully matched your custom preference for '{search_query}'."
+                                else:
+                                    eval_data["reasoning"]["overall"] += f" Note that the listing did not match your custom preference for '{search_query}'."
+                    return eval_data
                 else:
                     print(f"Gemini API request failed with status: {res.status_code} - {res.text}. Falling back to mock engine.")
         except Exception as e:
             print(f"Gemini API Exception: {e}. Falling back to mock engine.")
             
         # Fall back to high-fidelity mock if live call fails
-        return self._mock_evaluation(listing, max_budget, require_laundry, require_gym, max_commute)
+        return self._mock_evaluation(listing, max_budget, require_laundry, require_gym, max_commute, search_query)
 
     def _mock_evaluation(self, listing: dict, max_budget, require_laundry, require_gym, max_commute, search_query=""):
         """
@@ -478,6 +499,8 @@ You MUST respond with a JSON object in this exact schema (no additional wrapping
             if commute > max_commute: failed_elements.append("commute threshold")
             if search_query and not search_matched: failed_elements.append(f"custom criteria '{search_query}'")
             reasons["overall"] = f"This listing was rejected due to mismatch in requirements: {', '.join(failed_elements)}. Final compatibility score: {score}/100."
+            if search_query and search_matched:
+                reasons["overall"] += f" Note that the listing successfully matched your custom preference for '{search_query}'."
             
         # Ensure score is bound between 0 and 100
         score = max(0, min(100, score))
