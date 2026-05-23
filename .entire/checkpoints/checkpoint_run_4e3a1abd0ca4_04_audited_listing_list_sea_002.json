@@ -1,0 +1,20 @@
+{
+  "run_id": "run_4e3a1abd0ca4",
+  "step": 4,
+  "step_name": "Audited Listing list_sea_002",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sea_002', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T15:03:10.954100",
+  "data": {
+    "listing_id": "list_sea_002",
+    "title": "Fremont Brick Loft",
+    "approved": true,
+    "score": 98,
+    "reasoning": {
+      "budget": "The listing's price of $2400 is well within the user's maximum budget of $3200, meeting this constraint comfortably.",
+      "laundry": "The listing explicitly states 'In-unit Washer/Dryer' as an amenity, directly fulfilling the user's requirement for in-unit laundry.",
+      "climbing_gym": "The user's constraint was 'Must be close to climbing gym / active fitness: False', meaning proximity is not required. While the listing is actually quite close (0.8 miles) to a climbing gym, this does not violate the user's preference and could even be considered a convenient bonus, but it does not prevent approval.",
+      "commute": "The commute time to Downtown is listed as 18 minutes, which is within the user's maximum allowed commute time of 20 minutes.",
+      "overall": "This listing is an excellent match for the user's profile. All critical constraints, including budget, in-unit laundry, and commute time to Downtown, are perfectly met. The user's preference regarding climbing gym proximity (not required) is also satisfied, with the actual close proximity being a potential added benefit rather than a drawback."
+    }
+  }
+}
