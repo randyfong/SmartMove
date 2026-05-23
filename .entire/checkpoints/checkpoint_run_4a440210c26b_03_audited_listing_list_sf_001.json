@@ -1,0 +1,20 @@
+{
+  "run_id": "run_4a440210c26b",
+  "step": 3,
+  "step_name": "Audited Listing list_sf_001",
+  "timestamp": "2026-05-23T13:06:06.668772",
+  "data": {
+    "listing_id": "list_sf_001",
+    "title": "The Lumina Luxury Residences",
+    "approved": true,
+    "score": 95,
+    "reasoning": {
+      "budget": "The listing price of $3400 is well within the user's maximum budget of $4500.",
+      "laundry": "The user explicitly stated that in-unit laundry is not required. The listing includes 'In-unit Washer/Dryer' which meets this non-requirement perfectly.",
+      "climbing_gym": "The user explicitly stated that proximity to a climbing gym / active fitness is NOT required. The listing is only 0.8 miles from a climbing gym and even features a rock climbing wall as a building amenity, exceeding the non-requirement.",
+      "commute": "The listing's commute time to Downtown is 10 minutes, which is significantly below the user's maximum allowed commute of 45 minutes.",
+      "search_query": "The listing is located in the South of Market (SOMA) neighborhood in San Francisco, which is well-known for its excellent access to BART. It is within walking distance (approximately 0.7-1.0 miles) of both Embarcadero and Montgomery Street BART stations, satisfying the preference for being close to BART.",
+      "overall": "This listing is an excellent match for the user's preferences. It is well within budget, has a very short commute to downtown, and is conveniently located close to BART stations, fulfilling the custom preference. While in-unit laundry and proximity to a climbing gym were not required, the listing provides these features as a bonus, not a conflict. All critical constraints are met or exceeded, leading to a strong approval."
+    }
+  }
+}
