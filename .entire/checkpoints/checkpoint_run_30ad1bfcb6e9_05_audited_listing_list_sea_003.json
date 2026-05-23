@@ -1,0 +1,21 @@
+{
+  "run_id": "run_30ad1bfcb6e9",
+  "step": 5,
+  "step_name": "Audited Listing list_sea_003",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sea_003', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T15:04:20.202168",
+  "data": {
+    "listing_id": "list_sea_003",
+    "title": "Ballard Garden Studio",
+    "approved": false,
+    "score": 30,
+    "reasoning": {
+      "budget": "The listing price of $1800 is well within the user's maximum budget of $3200. This criterion is perfectly met.",
+      "laundry": "The user explicitly requires 'in-unit laundry'. The listing specifies 'Laundry in Building', which typically refers to shared laundry facilities and not a private in-unit washer/dryer. Therefore, this critical requirement is not met.",
+      "climbing_gym": "The user stated that being close to a climbing gym/active fitness is 'False', meaning it is not a requirement to be close, or even preferred not to be. The listing's climbing gym distance is 1.5 miles, which is not exceptionally close for a casual walk, aligning with the user's lack of preference for proximity.",
+      "commute": "The listing's commute time to Downtown is 25 minutes. This exceeds the user's maximum allowed commute of 20 minutes, failing this important criterion.",
+      "search_query": "The user's additional preference is to 'can walk to pikes market'. The listing is located in Ballard, which is several miles northwest of Pike Place Market. While Ballard is a highly walkable neighborhood within itself, it is not considered walking distance to Pike Place Market in Downtown Seattle. This preference is not met.",
+      "overall": "This listing is not approved primarily because it fails on two critical requirements: in-unit laundry and maximum commute time to Downtown. Additionally, the custom preference to be able to walk to Pike Place Market is not met due to the Ballard location being too far. While the budget is excellent and the proximity to a climbing gym aligns with the user's lack of preference for it, these positives cannot outweigh the failures on essential criteria. The shared laundry and extended commute make this listing unsuitable."
+    }
+  }
+}
