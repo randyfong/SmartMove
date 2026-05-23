@@ -1,0 +1,115 @@
+{
+  "run_id": "run_30ad1bfcb6e9",
+  "step": 6,
+  "step_name": "Search Recommendations Finalized",
+  "comment": "Logs the consolidated relocation report and final recommendations, storing the total count of evaluated listings, the number of approved listings, the top-choice selection, and the complete audit list.",
+  "timestamp": "2026-05-23T15:04:20.248851",
+  "data": {
+    "total_evaluated": 3,
+    "approved_count": 2,
+    "top_choice": {
+      "id": "list_sea_001",
+      "title": "Capitol Hill Modern Apartment",
+      "price": 2800,
+      "beds": 1,
+      "baths": 1,
+      "address": "1115 E Pike St, Seattle, WA 98122",
+      "neighborhood": "Capitol Hill",
+      "walkability_score": 96,
+      "amenities": [
+        "In-unit Washer/Dryer",
+        "Rooftop BBQ",
+        "Fitness Center",
+        "Dishwasher",
+        "Secure Bike Room"
+      ],
+      "climbing_gym_distance_miles": 0.5,
+      "grocery_store_distance_miles": 0.15,
+      "commute_time_downtown_mins": 12,
+      "description": "Live in the center of Capitol Hill's vibrant Pike-Pine corridor. High end modern finishes, floor-to-ceiling windows, private washer and dryer, and an amazing rooftop terrace with 360 views of Seattle skyline, Space Needle, and Mt. Rainier.",
+      "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=60"
+    },
+    "all_results": [
+      {
+        "id": "list_sea_001",
+        "title": "Capitol Hill Modern Apartment",
+        "price": 2800,
+        "address": "1115 E Pike St, Seattle, WA 98122",
+        "neighborhood": "Capitol Hill",
+        "walkability_score": 96,
+        "amenities": [
+          "In-unit Washer/Dryer",
+          "Rooftop BBQ",
+          "Fitness Center",
+          "Dishwasher",
+          "Secure Bike Room"
+        ],
+        "commute_time": 12,
+        "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=60",
+        "approved": true,
+        "score": 100,
+        "reasoning": {
+          "budget": "The listing price of $2800 is well within the user's maximum budget of $3200.",
+          "laundry": "The listing explicitly states 'In-unit Washer/Dryer' in its amenities, fulfilling the user's requirement for in-unit laundry.",
+          "climbing_gym": "The user stated 'Must be close to climbing gym / active fitness: False', meaning proximity to a climbing gym is not a requirement. The listing being 0.5 miles from a climbing gym does not violate this preference and is considered neutral/irrelevant to the constraints.",
+          "commute": "The commute time to Downtown is 12 minutes, which is comfortably below the user's maximum allowed commute of 20 minutes.",
+          "search_query": "The listing is located in Capitol Hill with a high walkability score of 96. While not directly adjacent, Capitol Hill is well-situated for walking to Pike Place Market, typically a 25-30 minute walk depending on the exact route, which satisfies the 'can walk to pikes market' preference.",
+          "overall": "This apartment listing is an excellent match for the user's constraints. It meets the budget, has in-unit laundry, offers a short commute to downtown, and its location in Capitol Hill makes walking to Pike Place Market feasible. The proximity to a climbing gym is irrelevant as per the user's stated preference."
+        }
+      },
+      {
+        "id": "list_sea_002",
+        "title": "Fremont Brick Loft",
+        "price": 2400,
+        "address": "3400 Phinney Ave N, Seattle, WA 98103",
+        "neighborhood": "Fremont",
+        "walkability_score": 93,
+        "amenities": [
+          "In-unit Washer/Dryer",
+          "Shared Courtyard",
+          "Dishwasher",
+          "Pet Friendly",
+          "Exposed Timber"
+        ],
+        "commute_time": 18,
+        "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop&q=60",
+        "approved": true,
+        "score": 70,
+        "reasoning": {
+          "budget": "The listing price of $2400 is well within the user's maximum budget of $3200.",
+          "laundry": "The listing explicitly states 'In-unit Washer/Dryer' in its amenities, fulfilling the requirement for in-unit laundry.",
+          "climbing_gym": "The user indicated 'False' for needing to be close to a climbing gym/active fitness. The listing's proximity (0.8 miles) to a climbing gym does not conflict with this constraint, as the user does not require it.",
+          "commute": "The commute time to Downtown is 18 minutes, which is within the user's maximum allowed commute of 20 minutes.",
+          "search_query": "The listing is located in Fremont. While Fremont has excellent walkability within its own neighborhood, it is approximately 3-4 miles from Pike Place Market, making it not practically walkable for most people. Therefore, this listing does not satisfy the 'can walk to Pike Place Market' preference.",
+          "overall": "This listing meets all the primary hard constraints: it's within budget, has in-unit laundry, and offers a commute to Downtown within the specified limit. The only significant deviation is that it does not meet the custom preference of being walkable to Pike Place Market, as Fremont is not within comfortable walking distance of that location. Despite this, the core requirements are met, making it an approved option, though the score reflects the unmet custom preference."
+        }
+      },
+      {
+        "id": "list_sea_003",
+        "title": "Ballard Garden Studio",
+        "price": 1800,
+        "address": "5400 Ballard Ave NW, Seattle, WA 98107",
+        "neighborhood": "Ballard",
+        "walkability_score": 94,
+        "amenities": [
+          "Shared Backyard",
+          "Laundry in Building",
+          "Hardwood Floors",
+          "Secure Entry"
+        ],
+        "commute_time": 25,
+        "image_url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=60",
+        "approved": false,
+        "score": 30,
+        "reasoning": {
+          "budget": "The listing price of $1800 is well within the user's maximum budget of $3200. This criterion is perfectly met.",
+          "laundry": "The user explicitly requires 'in-unit laundry'. The listing specifies 'Laundry in Building', which typically refers to shared laundry facilities and not a private in-unit washer/dryer. Therefore, this critical requirement is not met.",
+          "climbing_gym": "The user stated that being close to a climbing gym/active fitness is 'False', meaning it is not a requirement to be close, or even preferred not to be. The listing's climbing gym distance is 1.5 miles, which is not exceptionally close for a casual walk, aligning with the user's lack of preference for proximity.",
+          "commute": "The listing's commute time to Downtown is 25 minutes. This exceeds the user's maximum allowed commute of 20 minutes, failing this important criterion.",
+          "search_query": "The user's additional preference is to 'can walk to pikes market'. The listing is located in Ballard, which is several miles northwest of Pike Place Market. While Ballard is a highly walkable neighborhood within itself, it is not considered walking distance to Pike Place Market in Downtown Seattle. This preference is not met.",
+          "overall": "This listing is not approved primarily because it fails on two critical requirements: in-unit laundry and maximum commute time to Downtown. Additionally, the custom preference to be able to walk to Pike Place Market is not met due to the Ballard location being too far. While the budget is excellent and the proximity to a climbing gym aligns with the user's lack of preference for it, these positives cannot outweigh the failures on essential criteria. The shared laundry and extended commute make this listing unsuitable."
+        }
+      }
+    ]
+  }
+}
