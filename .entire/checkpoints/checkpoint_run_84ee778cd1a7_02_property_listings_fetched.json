@@ -1,0 +1,41 @@
+{
+  "run_id": "run_84ee778cd1a7",
+  "step": 2,
+  "step_name": "Property Listings Fetched",
+  "timestamp": "2026-05-23T12:58:35.955556",
+  "data": {
+    "listings_count": 5,
+    "listings": [
+      {
+        "id": "list_sf_001",
+        "title": "The Lumina Luxury Residences",
+        "price": 3400,
+        "address": "201 Folsom St, San Francisco, CA 94105"
+      },
+      {
+        "id": "list_sf_002",
+        "title": "Vibrant Mission District Oasis",
+        "price": 3250,
+        "address": "850 Valencia St, San Francisco, CA 94110"
+      },
+      {
+        "id": "list_sf_003",
+        "title": "SOMA Brick & Timber Loft",
+        "price": 2900,
+        "address": "455 10th St, San Francisco, CA 94103"
+      },
+      {
+        "id": "list_sf_004",
+        "title": "Classic Presidio Heights Edwardian",
+        "price": 3600,
+        "address": "3215 Sacramento St, San Francisco, CA 94115"
+      },
+      {
+        "id": "list_sf_005",
+        "title": "Inner Sunset Judah Studio",
+        "price": 2100,
+        "address": "1420 Judah St, San Francisco, CA 94122"
+      }
+    ]
+  }
+}
