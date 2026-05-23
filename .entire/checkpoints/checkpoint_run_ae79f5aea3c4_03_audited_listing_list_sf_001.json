@@ -1,0 +1,21 @@
+{
+  "run_id": "run_ae79f5aea3c4",
+  "step": 3,
+  "step_name": "Audited Listing list_sf_001",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sf_001', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T14:54:55.456867",
+  "data": {
+    "listing_id": "list_sf_001",
+    "title": "The Lumina Luxury Residences",
+    "approved": true,
+    "score": 98,
+    "reasoning": {
+      "budget": "The listing price of $3400 is well within the user's maximum budget of $3500.",
+      "laundry": "The listing explicitly states 'In-unit Washer/Dryer' in its amenities, fully satisfying the requirement for in-unit laundry.",
+      "climbing_gym": "The listing is located 0.8 miles from a climbing gym, which is excellent proximity. Additionally, the building description highlights an in-building 'rock climbing wall' and 'High-end Fitness Center', which significantly exceeds the requirement for being close to active fitness options.",
+      "commute": "The commute time to Downtown is 10 minutes, which is well under the user's maximum allowed commute time of 30 minutes.",
+      "search_query": "The apartment is located in the South of Market (SOMA) neighborhood, a central and culturally rich area of San Francisco. SOMA provides good access to various entertainment venues, including theaters, fulfilling the 'close to theaters' preference.",
+      "overall": "This listing is an outstanding match for the user's criteria. It perfectly aligns with the budget, provides in-unit laundry, offers exceptional proximity and even an in-building amenity for active fitness/climbing, features a very short commute to Downtown, and is situated in a neighborhood that caters to the desire for close proximity to theaters. All primary constraints are met or exceeded, making this a highly recommended option."
+    }
+  }
+}
