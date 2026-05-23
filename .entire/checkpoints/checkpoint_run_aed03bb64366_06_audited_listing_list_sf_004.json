@@ -1,0 +1,20 @@
+{
+  "run_id": "run_aed03bb64366",
+  "step": 6,
+  "step_name": "Audited Listing list_sf_004",
+  "timestamp": "2026-05-23T12:32:56.749013",
+  "data": {
+    "listing_id": "list_sf_004",
+    "title": "Classic Presidio Heights Edwardian",
+    "approved": false,
+    "score": 25,
+    "reasoning": {
+      "budget": "The listing price of $3600 exceeds the user's maximum budget of $3500 by $100. This is a direct mismatch.",
+      "laundry": "The user explicitly requires 'in-unit laundry'. The listing only offers 'Coin-operated Laundry in Building', which does not meet this essential requirement.",
+      "climbing_gym": "The listing is 2.2 miles from a climbing gym. While not extremely far, the user's preference for being 'close to climbing gym / active fitness' implies a shorter, more convenient distance, ideally within 1-1.5 miles for frequent access. 2.2 miles might require driving or a longer walk/bike ride, which may not align with 'close'.",
+      "commute": "The commute time to Downtown is 25 minutes, which is well within the user's maximum acceptable commute of 30 minutes. This constraint is met.",
+      "search_query": "The user specifically requested 'exposed brick' as a custom preference. The listing description details historical elements like crown moldings and box-beam ceilings, but makes no mention of exposed brick.",
+      "overall": "This listing does not meet several critical user constraints. It is over budget and lacks the required in-unit laundry. Additionally, the distance to active fitness, while not prohibitive, isn't ideal for the 'close' preference, and the custom preference for exposed brick is not met. Only the commute time to Downtown is within the user's limits, leading to an overall disapproval of the listing."
+    }
+  }
+}
