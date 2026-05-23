@@ -1,0 +1,20 @@
+{
+  "run_id": "run_14334dcaf323",
+  "step": 4,
+  "step_name": "Audited Listing list_sf_002",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sf_002', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T14:38:42.001402",
+  "data": {
+    "listing_id": "list_sf_002",
+    "title": "Vibrant Mission District Oasis",
+    "approved": false,
+    "score": 70,
+    "reasoning": {
+      "budget": "The user's maximum budget is $3100. The apartment is listed at $3250, which is $150 over the specified budget. This constraint is not met.",
+      "laundry": "The user explicitly stated that in-unit laundry is not required (In-unit laundry required: False). The listing does not mention in-unit laundry, which aligns with the user's non-requirement. This constraint is met.",
+      "climbing_gym": "The user requires proximity to a climbing gym or active fitness. The listing indicates a climbing gym distance of 0.3 miles, which is exceptionally close and strongly meets this requirement.",
+      "commute": "The user's maximum commute to Downtown is 20 minutes. The listing states a commute time to Downtown of 15 minutes, which is well within the acceptable limit. This constraint is met.",
+      "overall": "The listing performs very well on proximity to active fitness and commute time to Downtown. The non-requirement for in-unit laundry is also met. However, the apartment's price of $3250 exceeds the user's maximum budget of $3100 by $150. While many positive aspects align with the user's preferences, the budget mismatch prevents this listing from being approved."
+    }
+  }
+}
