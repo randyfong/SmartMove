@@ -1,0 +1,21 @@
+{
+  "run_id": "run_3b67ec8f7d00",
+  "step": 4,
+  "step_name": "Audited Listing list_sf_002",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sf_002', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T15:05:34.915478",
+  "data": {
+    "listing_id": "list_sf_002",
+    "title": "Vibrant Mission District Oasis",
+    "approved": false,
+    "score": 50,
+    "reasoning": {
+      "budget": "The listing price of $3250 is comfortably below the user's maximum budget of $3600, fully satisfying this constraint.",
+      "laundry": "The user explicitly requires in-unit laundry (True). The listing's amenities do not include in-unit laundry or a washer/dryer, failing to meet this essential requirement.",
+      "climbing_gym": "The user does not require the listing to be close to a climbing gym or active fitness (False). The listing is indeed very close (0.3 miles), which does not violate the user's non-requirement.",
+      "commute": "The listing's commute time to Downtown is 15 minutes, which is well within the user's maximum allowable commute of 30 minutes, fully satisfying this constraint.",
+      "search_query": "The user's additional search criteria specify 'has a garage'. The listing's amenities and description do not mention the presence of a garage, indicating it does not meet this custom preference.",
+      "overall": "While the listing fits the budget and commute time perfectly, it critically fails on two key aspects: the explicit requirement for in-unit laundry and the custom preference for a garage. The absence of in-unit laundry, being a hard requirement, makes the listing unsuitable despite other positive attributes. The lack of a garage also detracts from its overall fit."
+    }
+  }
+}
