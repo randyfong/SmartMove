@@ -1,0 +1,20 @@
+{
+  "run_id": "run_940322c1ef1b",
+  "step": 3,
+  "step_name": "Audited Listing list_sf_001",
+  "timestamp": "2026-05-23T14:07:10.841195",
+  "data": {
+    "listing_id": "list_sf_001",
+    "title": "The Lumina Luxury Residences",
+    "approved": true,
+    "score": 98,
+    "reasoning": {
+      "budget": "The listing price of $3400 is well within the user's maximum budget of $3500.",
+      "laundry": "The listing explicitly states 'In-unit Washer/Dryer' in its amenities, satisfying the requirement for in-unit laundry.",
+      "climbing_gym": "The listing is 0.8 miles from a climbing gym, which is considered close. Furthermore, the building itself boasts an indoor rock climbing wall, providing exceptional and direct access to active fitness.",
+      "commute": "The commute time to Downtown is 10 minutes, which is significantly below the user's maximum allowed commute time of 30 minutes.",
+      "search_query": "Located in SOMA, 'The Lumina' is within walking distance (approximately 0.5 to 0.9 miles) of key BART stations such as Embarcadero and Montgomery Street, fully satisfying the 'close to BART' preference.",
+      "overall": "This listing is an excellent match, meeting all of the user's strict requirements. The price is within budget, in-unit laundry is provided, the commute is short, and it's ideally located for active fitness (with an on-site climbing wall!) and BART access. All custom preferences are perfectly satisfied."
+    }
+  }
+}
