@@ -1,0 +1,20 @@
+{
+  "run_id": "run_940322c1ef1b",
+  "step": 7,
+  "step_name": "Audited Listing list_sf_005",
+  "timestamp": "2026-05-23T14:07:42.790055",
+  "data": {
+    "listing_id": "list_sf_005",
+    "title": "Inner Sunset Judah Studio",
+    "approved": false,
+    "score": 20,
+    "reasoning": {
+      "budget": "The listing price of $2100 is well within the maximum budget of $3500.",
+      "laundry": "The user explicitly requires in-unit laundry, but this amenity is not listed in the apartment details. Therefore, this requirement is not met.",
+      "climbing_gym": "The user requires the listing to be close to a climbing gym or active fitness. The listing states a climbing gym distance of 3.5 miles, which is generally not considered 'close' for this type of preference.",
+      "commute": "The user has a maximum commute time to Downtown of 30 minutes. The listing indicates a commute time of 35 minutes, exceeding the user's limit.",
+      "search_query": "The user's additional preference is to be close to BART. The listing description mentions being 'Directly on the N-Judah Muni line', which is a light rail/streetcar service, not BART. There is no mention of proximity to BART.",
+      "overall": "This listing does not meet several critical user requirements. It fails on the mandatory in-unit laundry, exceeds the maximum commute time to Downtown, is not considered close to a climbing gym (3.5 miles), and does not satisfy the preference for being close to BART. Although the budget is well within limits, these significant shortcomings lead to the listing being disapproved."
+    }
+  }
+}
