@@ -1,0 +1,21 @@
+{
+  "run_id": "run_ae79f5aea3c4",
+  "step": 7,
+  "step_name": "Audited Listing list_sf_005",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sf_005', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T14:55:27.300532",
+  "data": {
+    "listing_id": "list_sf_005",
+    "title": "Inner Sunset Judah Studio",
+    "approved": false,
+    "score": 25,
+    "reasoning": {
+      "budget": "The listing price of $2100 is well within the user's maximum budget of $3500, making it an excellent match for this criterion.",
+      "laundry": "The listing's amenities do not mention in-unit laundry. Since 'in-unit laundry' is a required constraint, this listing fails to meet this critical requirement.",
+      "climbing_gym": "The climbing gym distance is 3.5 miles. While not extremely far, this distance is not considered 'close' enough for daily active fitness as per the user's preference.",
+      "commute": "The commute time to Downtown is listed as 35 minutes, which exceeds the user's maximum allowed commute time of 30 minutes. This is a critical mismatch.",
+      "search_query": "The listing is located in the Inner Sunset neighborhood, which is primarily residential and not generally considered to be close to major theater districts in San Francisco, failing to meet the custom preference.",
+      "overall": "This listing is not approved because it fails to meet several critical user constraints. It lacks the required in-unit laundry, exceeds the maximum commute time to Downtown, and does not adequately satisfy the preferences for proximity to a climbing gym or theaters. Although the price is well within budget, these other significant shortcomings make it an unsuitable option."
+    }
+  }
+}
