@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMove — Autonomous AI Relocation & Booking Engine</title>
+    <!-- Modern Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/style.css">
+</head>
+<body>
+    <div class="glass-bg-glow"></div>
+    
+    <!-- Top Premium Navigation -->
+    <header class="app-header">
+        <div class="header-logo">
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 9.5V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H9V15H15V22H20C20.5304 22 21.0391 21.7893 21.4142 21.4142C21.7893 21.0391 22 20.5304 22 20V9.5L12 2Z" stroke="url(#logo-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 22V15H15V22" stroke="url(#logo-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                    <linearGradient id="logo-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#a855f7"/>
+                        <stop offset="1" stop-color="#06b6d4"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <div class="logo-text">
+                <h1>SmartMove</h1>
+                <span class="logo-tagline">Git-Native AI Relocation Engine</span>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <div class="api-status-pills">
+                <div id="status-gemini" class="status-pill status-inactive" title="Gemini 2.5 Flash status">
+                    <span class="status-dot"></span>
+                    <span class="status-label">Gemini API</span>
+                </div>
+                <div id="status-apify" class="status-pill status-inactive" title="Apify status">
+                    <span class="status-dot"></span>
+                    <span class="status-label">Apify Scraper</span>
+                </div>
+                <div id="status-scalekit" class="status-pill status-active" title="Scalekit Booking Integration status">
+                    <span class="status-dot"></span>
+                    <span class="status-label">Scalekit Demo</span>
+                </div>
+            </div>
+            
+            <button id="btn-settings" class="btn btn-secondary btn-icon" aria-label="Settings">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span>Config</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Bento Grid Layout -->
+    <main class="dashboard-grid">
+        
+        <!-- Left: Relocation Preferences Card -->
+        <section class="grid-card control-panel glass-card">
+            <div class="card-header">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="header-icon"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                <h2>Relocation Constraints</h2>
+            </div>
+            
+            <form id="preferences-form" class="pref-form">
+                <div class="form-group">
+                    <label for="input-city">Target City</label>
+                    <div class="select-wrapper">
+                        <select id="input-city" required>
+                            <option value="San Francisco, CA">San Francisco, CA</option>
+                            <option value="New York City, NY">New York City, NY</option>
+                            <option value="Seattle, WA">Seattle, WA</option>
+                            <option value="Austin, TX">Austin, TX</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="input-budget">
+                        Maximum Budget 
+                        <span id="budget-val" class="field-indicator">$3,500/mo</span>
+                    </label>
+                    <input type="range" id="input-budget" min="1500" max="6000" step="100" value="3500">
+                </div>
+
+                <div class="form-group">
+                    <label for="input-commute">
+                        Max Commute to Downtown 
+                        <span id="commute-val" class="field-indicator">30 mins</span>
+                    </label>
+                    <input type="range" id="input-commute" min="10" max="60" step="5" value="30">
+                </div>
+
+                <div class="form-group switches-group">
+                    <div class="switch-row">
+                        <div class="switch-info">
+                            <span class="switch-title">In-Unit Laundry</span>
+                            <span class="switch-desc">Must contain private washer & dryer</span>
+                        </div>
+                        <label class="switch-control">
+                            <input type="checkbox" id="input-laundry" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="switch-row">
+                        <div class="switch-info">
+                            <span class="switch-title">Proximity to Active Fitness</span>
+                            <span class="switch-desc">Must be close to climbing gym/studio (&lt; 2 mi)</span>
+                        </div>
+                        <label class="switch-control">
+                            <input type="checkbox" id="input-gym" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" id="btn-run-agent" class="btn btn-primary btn-glow btn-full">
+                    <span class="btn-text">Execute Relocation Search</span>
+                    <span class="btn-loader hidden"></span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Right: Real-time Agent Log and Pipeline Visualizer -->
+        <section class="grid-card pipeline-console glass-card">
+            <div class="card-header">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="header-icon"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                <h2>Live Agent Operations Console</h2>
+            </div>
+            
+            <div class="pipeline-tracker">
+                <div class="pipeline-step" id="step-scrape">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
+                    <span class="step-label">Scraping Listings</span>
+                </div>
+                <div class="pipeline-divider"></div>
+                <div class="pipeline-step" id="step-audit">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <span class="step-label">AI Constraint Audit</span>
+                </div>
+                <div class="pipeline-divider"></div>
+                <div class="pipeline-step" id="step-git">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><line x1="18" y1="9" x2="18" y2="15"></line><path d="M6 9a6 6 0 0 0 6 6"></path></svg>
+                    </div>
+                    <span class="step-label">Git-Native Logging</span>
+                </div>
+            </div>
+
+            <div class="console-box">
+                <div class="console-header">
+                    <span>agent_stdout.log</span>
+                    <button class="btn-clear-console" id="btn-clear-log" title="Clear logs">Clear</button>
+                </div>
+                <div id="console-logs" class="console-content">
+                    <div class="log-row log-system">[system] Ready. Enter parameters and trigger the Relocation Agent to begin.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Width: Interactive Decision Tree & Auditable Results -->
+        <section class="grid-card decision-tree-section glass-card">
+            <div class="card-header">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="header-icon"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                <div class="header-title-group">
+                    <h2>Auditable Relocation Decision Tree</h2>
+                    <span class="header-sub">Verify why apartments were approved or filtered by the agent.</span>
+                </div>
+            </div>
+
+            <!-- Decision Tree Filters & Summary -->
+            <div class="tree-controls-bar">
+                <div class="tree-summary-pills">
+                    <span class="summary-pill total">Total Evaluated: <strong id="val-total-eval">0</strong></span>
+                    <span class="summary-pill approved">Approved: <strong id="val-approved-count">0</strong></span>
+                    <span class="summary-pill rejected">Filtered: <strong id="val-filtered-count">0</strong></span>
+                </div>
+                
+                <div class="tree-filter-buttons">
+                    <button class="tree-filter-btn active" data-filter="all">All Properties</button>
+                    <button class="tree-filter-btn" data-filter="approved">Approved</button>
+                    <button class="tree-filter-btn" data-filter="rejected">Filtered</button>
+                </div>
+            </div>
+
+            <!-- Decision Cards Container -->
+            <div id="decision-tree-container" class="decision-tree-container">
+                <div class="tree-empty-state">
+                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="1.5" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <p>No agent search has been executed yet. Trigger the agent above to construct the live audit tree.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Git Commit-Native Checkpoints History -->
+        <section class="grid-card git-checkpoints-section glass-card">
+            <div class="card-header">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="header-icon"><circle cx="12" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><line x1="18" y1="9" x2="18" y2="15"></line><path d="M6 9a6 6 0 0 0 6 6"></path></svg>
+                <div class="header-title-group">
+                    <h2>Git-Native Audit Checkpoint Logs</h2>
+                    <span class="header-sub">Every step is physically written inside `.entire/checkpoints/` and committed to your git history.</span>
+                </div>
+                <button id="btn-refresh-checkpoints" class="btn btn-secondary btn-icon-only" title="Refresh git checkpoints">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+                </button>
+            </div>
+
+            <div class="checkpoints-table-container">
+                <table class="checkpoints-table">
+                    <thead>
+                        <tr>
+                            <th>Step ID</th>
+                            <th>Checkpoint Name</th>
+                            <th>Time</th>
+                            <th>Git Commit & Message</th>
+                            <th>Trace File</th>
+                            <th>Inspect</th>
+                        </tr>
+                    </thead>
+                    <tbody id="checkpoints-list">
+                        <!-- Checkpoints will be populated here -->
+                        <tr class="table-empty">
+                            <td colspan="6">No git checkpoints found. Execute a search to write trace checkpoints.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- SETTINGS DRAWER / DIALOG -->
+    <dialog id="dialog-settings" class="custom-dialog glass-card">
+        <div class="dialog-header">
+            <h3>SmartMove Settings & Integration Keys</h3>
+            <button class="btn-close-dialog" aria-label="Close settings">&times;</button>
+        </div>
+        <form id="settings-form" class="dialog-form">
+            <div class="form-group">
+                <label for="input-gemini-key">Gemini API Key</label>
+                <input type="password" id="input-gemini-key" placeholder="Enter GEMINI_API_KEY (optional)">
+                <span class="form-help">Leaves offline high-fidelity simulator active if blank.</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="input-apify-token">Apify API Token</label>
+                <input type="password" id="input-apify-token" placeholder="Enter APIFY_API_TOKEN (optional)">
+                <span class="form-help">Uses seeded property engine database if empty.</span>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="switch-control">
+                    <input type="checkbox" id="input-scalekit-mock" checked>
+                    <span class="slider"></span>
+                </label>
+                <div class="checkbox-text">
+                    <span class="checkbox-title">Scalekit Mock Mode</span>
+                    <span class="checkbox-desc">Simulates calendar auth & invitation outreach flows in high fidelity</span>
+                </div>
+            </div>
+
+            <div class="dialog-footer">
+                <button type="button" class="btn btn-secondary btn-close-dialog">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Settings</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- DETAILED AUDIT MODAL -->
+    <dialog id="dialog-audit" class="custom-dialog glass-card large-dialog">
+        <div class="dialog-header">
+            <div>
+                <h3 id="audit-modal-title">Lumina SOMA Audit Trail</h3>
+                <span id="audit-modal-subtitle" class="audit-modal-sub">SF | $3,400</span>
+            </div>
+            <button class="btn-close-dialog" aria-label="Close details">&times;</button>
+        </div>
+        <div class="dialog-body grid-audit-body">
+            <!-- Left Side: Property details and image -->
+            <div class="audit-prop-card">
+                <img id="audit-prop-image" src="" alt="Property" class="audit-prop-img">
+                <div class="audit-prop-meta">
+                    <span id="audit-prop-address" class="meta-address">201 Folsom St</span>
+                    <span id="audit-prop-neighborhood" class="meta-badge">SOMA</span>
+                </div>
+                <div class="amenities-container">
+                    <h4>Identified Amenities</h4>
+                    <div id="audit-prop-amenities" class="amenities-tags">
+                        <!-- Dynamically filled -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Audit results & Git lock -->
+            <div class="audit-report-card">
+                <div class="audit-compatibility-score">
+                    <div class="score-circle-container">
+                        <svg viewBox="0 0 36 36" class="circular-chart">
+                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path id="audit-score-circle" class="circle" stroke-dasharray="85, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        </svg>
+                        <div class="score-percentage"><span id="audit-score-number">85</span>%</div>
+                    </div>
+                    <div class="score-status-group">
+                        <span id="audit-status-badge" class="status-badge approved">Approved</span>
+                        <span class="score-title">AI Compatibility Score</span>
+                    </div>
+                </div>
+
+                <!-- Detailed evaluations -->
+                <div class="audit-details-accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span class="acc-title">Budget Match</span>
+                            <span id="badge-audit-budget" class="acc-badge approved">PASS</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p id="txt-audit-budget"></p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span class="acc-title">In-Unit Laundry Match</span>
+                            <span id="badge-audit-laundry" class="acc-badge approved">PASS</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p id="txt-audit-laundry"></p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span class="acc-title">Active Fitness Proximity</span>
+                            <span id="badge-audit-gym" class="acc-badge approved">PASS</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p id="txt-audit-gym"></p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span class="acc-title">Commute Time Match</span>
+                            <span id="badge-audit-commute" class="acc-badge approved">PASS</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p id="txt-audit-commute"></p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item highlight">
+                        <div class="accordion-header">
+                            <span class="acc-title">Overall Agent Reasoning Summary</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p id="txt-audit-overall"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Git Lock Section -->
+                <div class="git-lock-box">
+                    <div class="git-lock-header">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <span>Audit Securely Locked in Git</span>
+                    </div>
+                    <div class="git-lock-details">
+                        <div><strong>Commit Hash:</strong> <span id="audit-git-hash" class="mono">f84e2098...</span></div>
+                        <div><strong>Message:</strong> <span id="audit-git-msg">checkpoint committed...</span></div>
+                        <div><strong>Commit Timestamp:</strong> <span id="audit-git-date">2026-05-23T12:00:00</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog-footer">
+            <button class="btn btn-secondary btn-close-dialog">Dismiss Audit</button>
+            <button id="btn-booking-trigger" class="btn btn-primary btn-glow">Approve Relocation Outreach</button>
+        </div>
+    </dialog>
+
+    <!-- SCALEKIT BOOKING MODAL -->
+    <dialog id="dialog-booking" class="custom-dialog glass-card">
+        <div class="dialog-header">
+            <h3>Scalekit Outreach & Booking Console</h3>
+            <button class="btn-close-dialog" aria-label="Close booking">&times;</button>
+        </div>
+        <form id="booking-form" class="dialog-form">
+            <div class="booking-summary-banner">
+                <h4 id="booking-banner-title">Outreach Invitation Setup</h4>
+                <p id="booking-banner-desc">Setting up outreach for The Lumina Luxury Residences</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="booking-name">Your Full Name</label>
+                <input type="text" id="booking-name" required placeholder="Randy Fong">
+            </div>
+
+            <div class="form-group">
+                <label for="booking-email">Your Email Address</label>
+                <input type="email" id="booking-email" required placeholder="randy@example.com">
+                <span class="form-help">Used to send Google/Outlook calendar invite via Scalekit auth.</span>
+            </div>
+
+            <div class="dialog-footer">
+                <button type="button" class="btn btn-secondary btn-close-dialog">Cancel</button>
+                <button type="submit" id="btn-booking-submit" class="btn btn-primary btn-glow">
+                    <span class="btn-text">Submit Calendar Hold & Invite</span>
+                    <span class="btn-loader hidden"></span>
+                </button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- BOOKING CONFIRMED SUCCESS MODAL -->
+    <dialog id="dialog-success" class="custom-dialog glass-card">
+        <div class="success-header-graphic">
+            <div class="success-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="36" height="36" stroke="#10b981" stroke-width="2" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h3>Calendar Hold Secured!</h3>
+            <p>Outreach successfully delivered and calendar event booked via Scalekit.</p>
+        </div>
+        
+        <div class="success-details-card">
+            <div class="success-row">
+                <span class="label">Event Title</span>
+                <span id="succ-title" class="val">Apartment Visit</span>
+            </div>
+            <div class="success-row">
+                <span class="label">Attendee</span>
+                <span id="succ-recipient" class="val">randy@example.com</span>
+            </div>
+            <div class="success-row">
+                <span class="label">Calendar Slot</span>
+                <span id="succ-time" class="val">2026-05-26 at 2:00 PM</span>
+            </div>
+            <div class="success-row">
+                <span class="label">Status</span>
+                <span class="val status-pill status-active">HOLD_SECURED</span>
+            </div>
+        </div>
+
+        <div class="dialog-footer centered">
+            <button type="button" class="btn btn-primary btn-glow btn-close-dialog">Awesome, thank you!</button>
+        </div>
+    </dialog>
+
+    <!-- TRACE INSPECTOR MODAL -->
+    <dialog id="dialog-trace" class="custom-dialog glass-card large-dialog">
+        <div class="dialog-header">
+            <div>
+                <h3>Trace Checkpoint Inspector</h3>
+                <span id="trace-modal-filename" class="audit-modal-sub">checkpoint_xxx.json</span>
+            </div>
+            <button class="btn-close-dialog" aria-label="Close trace">&times;</button>
+        </div>
+        <div class="dialog-body">
+            <div class="trace-metadata-strip">
+                <div><strong>Run ID:</strong> <span id="trace-meta-runid" class="mono"></span></div>
+                <div><strong>Step:</strong> <span id="trace-meta-step" class="mono"></span></div>
+                <div><strong>Timestamp:</strong> <span id="trace-meta-time"></span></div>
+            </div>
+            <pre class="trace-json-box"><code id="trace-json-code"></code></pre>
+        </div>
+        <div class="dialog-footer">
+            <button class="btn btn-secondary btn-close-dialog">Dismiss Inspector</button>
+        </div>
+    </dialog>
+
+    <footer class="app-footer">
+        <p>SmartMove AI Audit Node &copy; 2026. Built with FastAPI, Gemini 2.5, Scalekit, and entire.io trace auditing.</p>
+    </footer>
+
+    <script src="/public/app.js"></script>
+</body>
+</html>
