@@ -1,0 +1,162 @@
+{
+  "run_id": "run_84ee778cd1a7",
+  "step": 8,
+  "step_name": "Search Recommendations Finalized",
+  "timestamp": "2026-05-23T12:59:10.109309",
+  "data": {
+    "total_evaluated": 5,
+    "approved_count": 2,
+    "top_choice": {
+      "id": "list_sf_003",
+      "title": "SOMA Brick & Timber Loft",
+      "price": 2900,
+      "beds": "Loft",
+      "baths": 1,
+      "address": "455 10th St, San Francisco, CA 94103",
+      "neighborhood": "South of Market (SOMA)",
+      "walkability_score": 92,
+      "amenities": [
+        "In-unit Washer/Dryer",
+        "Shared Garden Courtyard",
+        "Exposed Brick Walls",
+        "Dishwasher",
+        "Walk-in Closet"
+      ],
+      "climbing_gym_distance_miles": 1.1,
+      "grocery_store_distance_miles": 0.15,
+      "commute_time_downtown_mins": 12,
+      "description": "Gorgeous industrial loft featuring double-tall ceilings, original timber beams, and exposed red brick. The open floor plan includes a modern chef's kitchen, custom bookshelves, and a cozy mezzanine bedroom. Exceptionally convenient location right around the block from Trader Joe's and target commute lines.",
+      "image_url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=60"
+    },
+    "all_results": [
+      {
+        "id": "list_sf_001",
+        "title": "The Lumina Luxury Residences",
+        "price": 3400,
+        "address": "201 Folsom St, San Francisco, CA 94105",
+        "neighborhood": "South of Market (SOMA)",
+        "walkability_score": 95,
+        "amenities": [
+          "In-unit Washer/Dryer",
+          "High-end Fitness Center",
+          "24/7 Doorman",
+          "Rooftop Terrace",
+          "Dishwasher",
+          "Valet Parking"
+        ],
+        "commute_time": 10,
+        "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=60",
+        "approved": true,
+        "score": 97,
+        "reasoning": {
+          "budget": "The listing price of $3400 is well within the maximum budget of $3500.",
+          "laundry": "The listing explicitly states 'In-unit Washer/Dryer' as an amenity, perfectly meeting the in-unit laundry requirement.",
+          "climbing_gym": "The listing is excellent for active fitness, with a climbing gym only 0.8 miles away and, notably, a 'rock climbing wall' mentioned as an amenity within the building itself.",
+          "commute": "The commute time to Downtown is only 10 minutes, which is significantly below the maximum allowed commute of 30 minutes.",
+          "overall": "This listing is an excellent match for the user's constraints. It meets all financial, convenience, and lifestyle requirements, particularly excelling in fitness amenities with both a nearby climbing gym and an in-building rock climbing wall. The commute to downtown is also very favorable, making it a highly recommended option."
+        }
+      },
+      {
+        "id": "list_sf_002",
+        "title": "Vibrant Mission District Oasis",
+        "price": 3250,
+        "address": "850 Valencia St, San Francisco, CA 94110",
+        "neighborhood": "Mission District",
+        "walkability_score": 98,
+        "amenities": [
+          "Shared Rooftop Garden",
+          "Secure Bike Storage",
+          "Dishwasher",
+          "Hardwood Floors",
+          "Pet Friendly"
+        ],
+        "commute_time": 15,
+        "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop&q=60",
+        "approved": false,
+        "score": 25,
+        "reasoning": {
+          "budget": "The listing price of $3250 is well within your maximum budget of $3500, making it a good fit financially.",
+          "laundry": "You explicitly require in-unit laundry, however, the apartment listing does not mention 'in-unit laundry' or any related amenity (e.g., 'washer/dryer in unit', 'laundry hookups'). This indicates the listing does not meet your critical laundry requirement.",
+          "climbing_gym": "The apartment is located only 0.3 miles from a climbing gym, which perfectly aligns with your requirement to be close to active fitness options.",
+          "commute": "The commute time to Downtown is 15 minutes, which is well under your maximum allowed commute of 30 minutes.",
+          "overall": "While this apartment meets your budget, is excellently located near a climbing gym, and offers a very convenient commute to Downtown, it critically fails to provide the required in-unit laundry. Since in-unit laundry was a non-negotiable requirement, this listing cannot be approved despite excelling in other areas."
+        }
+      },
+      {
+        "id": "list_sf_003",
+        "title": "SOMA Brick & Timber Loft",
+        "price": 2900,
+        "address": "455 10th St, San Francisco, CA 94103",
+        "neighborhood": "South of Market (SOMA)",
+        "walkability_score": 92,
+        "amenities": [
+          "In-unit Washer/Dryer",
+          "Shared Garden Courtyard",
+          "Exposed Brick Walls",
+          "Dishwasher",
+          "Walk-in Closet"
+        ],
+        "commute_time": 12,
+        "image_url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=60",
+        "approved": true,
+        "score": 98,
+        "reasoning": {
+          "budget": "The listing price of $2900 is comfortably below the maximum budget of $3500, offering excellent value and financial flexibility.",
+          "laundry": "The listing explicitly lists 'In-unit Washer/Dryer' in its amenities, perfectly fulfilling the user's requirement for in-unit laundry.",
+          "climbing_gym": "With a climbing gym distance of 1.1 miles, this listing is exceptionally close to active fitness options, satisfying the user's preference for proximity to a climbing gym.",
+          "commute": "The commute time to Downtown is only 12 minutes, which is significantly under the user's maximum allowed commute time of 30 minutes, ensuring a quick and convenient daily trip.",
+          "overall": "This SOMA Brick & Timber Loft is an outstanding match for the user's requirements. It falls well within budget, provides essential in-unit laundry, is very close to active fitness options, and offers a remarkably short commute to Downtown. All critical constraints are met or exceeded, making this a highly recommended listing."
+        }
+      },
+      {
+        "id": "list_sf_004",
+        "title": "Classic Presidio Heights Edwardian",
+        "price": 3600,
+        "address": "3215 Sacramento St, San Francisco, CA 94115",
+        "neighborhood": "Presidio Heights",
+        "walkability_score": 88,
+        "amenities": [
+          "Decorative Fireplace",
+          "Hardwood Floors",
+          "Dishwasher",
+          "Coin-operated Laundry in Building"
+        ],
+        "commute_time": 25,
+        "image_url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&auto=format&fit=crop&q=60",
+        "approved": false,
+        "score": 35,
+        "reasoning": {
+          "budget": "The listing price of $3600 exceeds the user's maximum budget of $3500 by $100.",
+          "laundry": "The listing specifies 'Coin-operated Laundry in Building', which does not meet the user's explicit requirement for 'In-unit laundry'.",
+          "climbing_gym": "The climbing gym is 2.2 miles away. While this might be an acceptable distance for some, it is not considered 'very close' for daily active fitness. However, the description does mention easy walking distance to Presidio trails, offering other active fitness options.",
+          "commute": "The commute time to Downtown is 25 minutes, which is comfortably within the user's maximum acceptable commute of 30 minutes.",
+          "overall": "This listing fails to meet two critical user requirements: it is over budget by $100, and it offers coin-operated communal laundry rather than the required in-unit laundry. While the commute to Downtown is excellent, and there are other active fitness options nearby, the specific climbing gym distance is borderline. Due to the unmet budget and laundry constraints, this listing is not approved."
+        }
+      },
+      {
+        "id": "list_sf_005",
+        "title": "Inner Sunset Judah Studio",
+        "price": 2100,
+        "address": "1420 Judah St, San Francisco, CA 94122",
+        "neighborhood": "Inner Sunset",
+        "walkability_score": 85,
+        "amenities": [
+          "Shared Backyard Access",
+          "All Utilities Included",
+          "Hardwood Floors"
+        ],
+        "commute_time": 35,
+        "image_url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&auto=format&fit=crop&q=60",
+        "approved": false,
+        "score": 25,
+        "reasoning": {
+          "budget": "The listing price of $2100 is well within the user's maximum budget of $3500, making it a strong match for this criterion.",
+          "laundry": "The user explicitly requires in-unit laundry. The listing amenities do not include any mention of laundry facilities, especially not 'in-unit'. Therefore, this listing does not meet the laundry requirement.",
+          "climbing_gym": "The user requires proximity to a climbing gym/active fitness. The listing indicates a climbing gym distance of 3.5 miles. While not excessively far, 3.5 miles is generally not considered 'close' for regular, convenient access to an active fitness location without a car or significant public transport, thus it's a weak match for the 'close' requirement.",
+          "commute": "The user's maximum commute to Downtown is 30 minutes. The listing states a commute time of 35 minutes to Downtown, which exceeds the specified maximum by 5 minutes, failing this constraint.",
+          "overall": "This listing is not approved as it fails to meet several key user constraints. While the budget is excellent, the absence of in-unit laundry, the somewhat distant climbing gym, and an over-budget commute time to downtown make it an unsuitable option for the user's specific requirements."
+        }
+      }
+    ]
+  }
+}
