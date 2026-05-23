@@ -1,0 +1,21 @@
+{
+  "run_id": "run_30ad1bfcb6e9",
+  "step": 3,
+  "step_name": "Audited Listing list_sea_001",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sea_001', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T15:04:03.599150",
+  "data": {
+    "listing_id": "list_sea_001",
+    "title": "Capitol Hill Modern Apartment",
+    "approved": true,
+    "score": 100,
+    "reasoning": {
+      "budget": "The listing price of $2800 is well within the user's maximum budget of $3200.",
+      "laundry": "The listing explicitly states 'In-unit Washer/Dryer' in its amenities, fulfilling the user's requirement for in-unit laundry.",
+      "climbing_gym": "The user stated 'Must be close to climbing gym / active fitness: False', meaning proximity to a climbing gym is not a requirement. The listing being 0.5 miles from a climbing gym does not violate this preference and is considered neutral/irrelevant to the constraints.",
+      "commute": "The commute time to Downtown is 12 minutes, which is comfortably below the user's maximum allowed commute of 20 minutes.",
+      "search_query": "The listing is located in Capitol Hill with a high walkability score of 96. While not directly adjacent, Capitol Hill is well-situated for walking to Pike Place Market, typically a 25-30 minute walk depending on the exact route, which satisfies the 'can walk to pikes market' preference.",
+      "overall": "This apartment listing is an excellent match for the user's constraints. It meets the budget, has in-unit laundry, offers a short commute to downtown, and its location in Capitol Hill makes walking to Pike Place Market feasible. The proximity to a climbing gym is irrelevant as per the user's stated preference."
+    }
+  }
+}
