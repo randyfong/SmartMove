@@ -1,0 +1,30 @@
+{
+  "run_id": "run_30ad1bfcb6e9",
+  "step": 2,
+  "step_name": "Property Listings Fetched",
+  "comment": "Logs the raw apartment listings scraped or fetched from the database, listing their IDs, titles, rental prices, and street addresses.",
+  "timestamp": "2026-05-23T15:03:52.654528",
+  "data": {
+    "listings_count": 3,
+    "listings": [
+      {
+        "id": "list_sea_001",
+        "title": "Capitol Hill Modern Apartment",
+        "price": 2800,
+        "address": "1115 E Pike St, Seattle, WA 98122"
+      },
+      {
+        "id": "list_sea_002",
+        "title": "Fremont Brick Loft",
+        "price": 2400,
+        "address": "3400 Phinney Ave N, Seattle, WA 98103"
+      },
+      {
+        "id": "list_sea_003",
+        "title": "Ballard Garden Studio",
+        "price": 1800,
+        "address": "5400 Ballard Ave NW, Seattle, WA 98107"
+      }
+    ]
+  }
+}
