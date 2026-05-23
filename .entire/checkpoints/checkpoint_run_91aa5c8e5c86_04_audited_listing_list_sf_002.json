@@ -1,0 +1,19 @@
+{
+  "run_id": "run_91aa5c8e5c86",
+  "step": 4,
+  "step_name": "Audited Listing list_sf_002",
+  "timestamp": "2026-05-23T12:25:38.685682",
+  "data": {
+    "listing_id": "list_sf_002",
+    "title": "Vibrant Mission District Oasis",
+    "approved": false,
+    "score": 30,
+    "reasoning": {
+      "budget": "The listing price of $3250 is well within your maximum budget of $4300, leaving ample room.",
+      "laundry": "The listing's amenities do not include in-unit laundry. This is a mandatory requirement for you, making this listing unsuitable in this regard.",
+      "climbing_gym": "The listing is exceptionally close to a climbing gym, at just 0.3 miles, perfectly meeting your requirement for proximity to active fitness.",
+      "commute": "The commute time to Downtown is 15 minutes, which is well under your maximum allowed commute of 30 minutes.",
+      "overall": "While this listing excels in budget, commute time, and proximity to a climbing gym, it critically fails to meet your strict requirement for in-unit laundry. Despite its many positives, the absence of this mandatory amenity means it is not an approved option."
+    }
+  }
+}
