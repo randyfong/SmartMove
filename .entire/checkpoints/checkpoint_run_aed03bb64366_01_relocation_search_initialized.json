@@ -1,0 +1,20 @@
+{
+  "run_id": "run_aed03bb64366",
+  "step": 1,
+  "step_name": "Relocation Search Initialized",
+  "timestamp": "2026-05-23T12:32:27.183758",
+  "data": {
+    "requirements": {
+      "city": "San Francisco, CA",
+      "budget": 3500.0,
+      "requireLaundry": true,
+      "requireGym": true,
+      "maxCommute": 30.0,
+      "searchQuery": "exposed brick"
+    },
+    "api_modes": {
+      "gemini_active": true,
+      "apify_active": true
+    }
+  }
+}
