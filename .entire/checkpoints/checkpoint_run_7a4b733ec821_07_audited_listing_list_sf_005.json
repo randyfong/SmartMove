@@ -1,0 +1,20 @@
+{
+  "run_id": "run_7a4b733ec821",
+  "step": 7,
+  "step_name": "Audited Listing list_sf_005",
+  "timestamp": "2026-05-23T13:01:22.263831",
+  "data": {
+    "listing_id": "list_sf_005",
+    "title": "Inner Sunset Judah Studio",
+    "approved": false,
+    "score": 25,
+    "reasoning": {
+      "budget": "The listing price of $2100 is well within the user's maximum budget of $3500. This is a perfect match for the budget constraint.",
+      "laundry": "The user explicitly requires in-unit laundry (True). The listing amenities do not mention in-unit laundry; rather, it lists 'Shared Backyard Access', 'All Utilities Included', and 'Hardwood Floors'. This indicates that in-unit laundry is not available, failing this critical requirement.",
+      "climbing_gym": "The user requires the listing to be close to a climbing gym / active fitness. The listing states a climbing gym distance of 3.5 miles. While not extremely far, 3.5 miles may not be considered 'close' for daily active fitness, especially if relying on walking or short bike rides. It's a moderate distance, but not ideal for the 'close' requirement.",
+      "commute": "The user's maximum commute to Downtown is 30.0 minutes. The listing indicates a commute time to Downtown of 35 minutes, which exceeds the user's limit by 5 minutes. Therefore, this listing does not meet the commute requirement.",
+      "search_query": "The user specified 'exposed brick' as an additional search criterion. The listing description and amenities do not mention or suggest the presence of exposed brick. This custom preference is not met by the listing.",
+      "overall": "This listing is not approved as it fails to meet several key user constraints. While the price is excellent, it lacks in-unit laundry, exceeds the maximum commute time to Downtown, and does not include the desired exposed brick. The proximity to a climbing gym is moderate, but not ideally 'close'. The absence of in-unit laundry and the longer commute are significant deterrents for approval."
+    }
+  }
+}
