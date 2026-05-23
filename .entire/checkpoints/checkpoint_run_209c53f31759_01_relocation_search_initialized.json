@@ -1,0 +1,20 @@
+{
+  "run_id": "run_209c53f31759",
+  "step": 1,
+  "step_name": "Relocation Search Initialized",
+  "timestamp": "2026-05-23T14:22:09.201025",
+  "data": {
+    "requirements": {
+      "city": "San Francisco, CA",
+      "budget": 3500.0,
+      "requireLaundry": false,
+      "requireGym": false,
+      "maxCommute": 30.0,
+      "searchQuery": "within a few blocks of a starbucks coffee shop"
+    },
+    "api_modes": {
+      "gemini_active": true,
+      "apify_active": true
+    }
+  }
+}
