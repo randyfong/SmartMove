@@ -517,7 +517,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ];
                 
                 if (item.reasoning.search_query) {
-                    criteria.push({ key: 'search_query', label: 'Custom Preference' });
+                    criteria.push({ key: 'search_query', label: 'Additional Search Criteria' });
                 }
                 
                 criteria.forEach(c => {

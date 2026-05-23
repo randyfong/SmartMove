@@ -309,7 +309,7 @@ User Constraints:
 - Max Commute to Downtown: {max_commute} minutes
 """
         if search_query:
-            prompt += f"- Freeform search criteria / custom preference: {search_query}\n"
+            prompt += f"- Additional search criteria / custom preference: {search_query}\n"
             
         prompt += f"""
 Apartment Listing:
@@ -326,7 +326,7 @@ You MUST respond with a JSON object in this exact schema (no additional wrapping
     "commute": "detailed explanation of commute matching",
 """
         if search_query:
-            prompt += '    "search_query": "detailed explanation of how well the listing satisfies/contains elements of the freeform search criteria",\n'
+            prompt += '    "search_query": "detailed explanation of how well the listing satisfies/contains elements of the additional search criteria",\n'
             
         prompt += """    "overall": "comprehensive overall reasoning matching user profile"
   }}
