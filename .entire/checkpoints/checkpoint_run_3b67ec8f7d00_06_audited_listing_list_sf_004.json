@@ -1,0 +1,21 @@
+{
+  "run_id": "run_3b67ec8f7d00",
+  "step": 6,
+  "step_name": "Audited Listing list_sf_004",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sf_004', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T15:05:48.926023",
+  "data": {
+    "listing_id": "list_sf_004",
+    "title": "Classic Presidio Heights Edwardian",
+    "approved": false,
+    "score": 55,
+    "reasoning": {
+      "budget": "The listing price of $3600 perfectly matches the user's maximum budget of $3600.",
+      "laundry": "The user requires in-unit laundry (True), but the listing only offers \"Coin-operated Laundry in Building\", which does not meet this critical requirement.",
+      "climbing_gym": "The user explicitly stated that being close to a climbing gym/active fitness is not required (False), so the listing's distance of 2.2 miles is acceptable and does not violate any constraint.",
+      "commute": "The listing's commute time to downtown is 25 minutes, which is within the user's maximum allowed commute of 30 minutes.",
+      "search_query": "The user's additional search criteria is for a listing that \"has a garage\". The provided listing information does not mention or indicate the presence of a garage.",
+      "overall": "The listing successfully meets the budget and commute time constraints, and the climbing gym proximity is not a concern as per user preference. However, it fails on a critical requirement for in-unit laundry, as it only provides coin-operated laundry in the building. Furthermore, the listing does not satisfy the custom preference for a garage. Due to the failure on the essential 'in-unit laundry' requirement, the listing is not approved."
+    }
+  }
+}
