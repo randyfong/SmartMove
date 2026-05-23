@@ -1,0 +1,20 @@
+{
+  "run_id": "run_97bca60a9f3c",
+  "step": 6,
+  "step_name": "Audited Listing list_sf_004",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sf_004', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T14:34:36.423167",
+  "data": {
+    "listing_id": "list_sf_004",
+    "title": "Classic Presidio Heights Edwardian",
+    "approved": false,
+    "score": 40,
+    "reasoning": {
+      "budget": "The listing price of $3600 exceeds your maximum budget of $3500 by $100.",
+      "laundry": "The listing specifies 'Coin-operated Laundry in Building', which does not meet your requirement for 'In-unit laundry'.",
+      "climbing_gym": "The climbing gym is 2.2 miles away, which is a reasonable and acceptable distance for 'close to climbing gym / active fitness' given it's not excessively far and allows for various modes of transport.",
+      "commute": "The commute time to downtown is 25 minutes, which is well within your maximum allowed commute time of 30 minutes.",
+      "overall": "This listing is not approved primarily due to two critical unmet requirements: the price ($3600) exceeds your maximum budget ($3500), and the laundry facility is coin-operated in the building rather than in-unit. While the commute to downtown and proximity to a climbing gym meet your criteria, the core budget and laundry constraints are not satisfied, making this apartment unsuitable."
+    }
+  }
+}
