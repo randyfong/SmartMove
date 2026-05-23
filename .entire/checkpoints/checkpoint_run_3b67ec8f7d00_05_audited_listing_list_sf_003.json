@@ -1,0 +1,21 @@
+{
+  "run_id": "run_3b67ec8f7d00",
+  "step": 5,
+  "step_name": "Audited Listing list_sf_003",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sf_003', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T15:05:43.731588",
+  "data": {
+    "listing_id": "list_sf_003",
+    "title": "SOMA Brick & Timber Loft",
+    "approved": false,
+    "score": 80,
+    "reasoning": {
+      "budget": "The listing price of $2900 is well within your maximum budget of $3600, making this a financially suitable option.",
+      "laundry": "The listing clearly states 'In-unit Washer/Dryer' in its amenities, directly satisfying your requirement for in-unit laundry.",
+      "climbing_gym": "You specified that proximity to a climbing gym / active fitness is not a required criterion. Therefore, the 1.1 miles distance to a climbing gym is acceptable and does not negatively impact the listing's suitability.",
+      "commute": "The commute time to Downtown is 12 minutes, which is comfortably within your maximum allowed commute time of 30 minutes.",
+      "search_query": "Your additional search criteria included the preference for a garage. The listing's amenities and description do not mention the presence of a garage, indicating this preference is not met.",
+      "overall": "This listing excels in meeting most of your core requirements, including budget, in-unit laundry, and commute time to Downtown. It also aligns with your non-requirement regarding proximity to a climbing gym. However, the absence of a garage, a specific custom preference you requested, is a key unmet criterion that prevents overall approval despite its many other positive attributes."
+    }
+  }
+}
