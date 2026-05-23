@@ -1,0 +1,20 @@
+{
+  "run_id": "run_15c1f7da871f",
+  "step": 7,
+  "step_name": "Audited Listing list_sf_005",
+  "timestamp": "2026-05-23T13:04:50.054285",
+  "data": {
+    "listing_id": "list_sf_005",
+    "title": "Inner Sunset Judah Studio",
+    "approved": false,
+    "score": 35,
+    "reasoning": {
+      "budget": "The listing's price of $2100 exceeds your maximum budget of $2000 by $100, which is a significant mismatch.",
+      "laundry": "You specified that in-unit laundry is not required, and the listing's amenities do not mention in-unit laundry, aligning with your preference.",
+      "climbing_gym": "You indicated that proximity to a climbing gym or active fitness is not a requirement, so the listed distance of 3.5 miles does not affect its suitability.",
+      "commute": "The commute time to Downtown is 35 minutes, which is comfortably within your maximum allowed commute time of 45 minutes.",
+      "search_query": "Your custom preference was to be close to BART. While the listing is directly on the N-Judah Muni line, the Inner Sunset neighborhood is not considered directly close to a BART station and would require a transfer, thus not satisfying your preference for BART proximity.",
+      "overall": "This listing matches several of your criteria, including laundry preference, no requirement for gym proximity, and a satisfactory commute time to Downtown. However, it significantly misses your primary budget constraint, being $100 over your maximum. Furthermore, it does not meet your custom preference for being close to BART. Due to exceeding the budget and not meeting the BART proximity preference, the listing is not approved."
+    }
+  }
+}
