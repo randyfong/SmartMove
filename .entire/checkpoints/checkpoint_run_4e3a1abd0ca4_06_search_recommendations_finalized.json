@@ -1,0 +1,112 @@
+{
+  "run_id": "run_4e3a1abd0ca4",
+  "step": 6,
+  "step_name": "Search Recommendations Finalized",
+  "comment": "Logs the consolidated relocation report and final recommendations, storing the total count of evaluated listings, the number of approved listings, the top-choice selection, and the complete audit list.",
+  "timestamp": "2026-05-23T15:03:17.829307",
+  "data": {
+    "total_evaluated": 3,
+    "approved_count": 2,
+    "top_choice": {
+      "id": "list_sea_001",
+      "title": "Capitol Hill Modern Apartment",
+      "price": 2800,
+      "beds": 1,
+      "baths": 1,
+      "address": "1115 E Pike St, Seattle, WA 98122",
+      "neighborhood": "Capitol Hill",
+      "walkability_score": 96,
+      "amenities": [
+        "In-unit Washer/Dryer",
+        "Rooftop BBQ",
+        "Fitness Center",
+        "Dishwasher",
+        "Secure Bike Room"
+      ],
+      "climbing_gym_distance_miles": 0.5,
+      "grocery_store_distance_miles": 0.15,
+      "commute_time_downtown_mins": 12,
+      "description": "Live in the center of Capitol Hill's vibrant Pike-Pine corridor. High end modern finishes, floor-to-ceiling windows, private washer and dryer, and an amazing rooftop terrace with 360 views of Seattle skyline, Space Needle, and Mt. Rainier.",
+      "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=60"
+    },
+    "all_results": [
+      {
+        "id": "list_sea_001",
+        "title": "Capitol Hill Modern Apartment",
+        "price": 2800,
+        "address": "1115 E Pike St, Seattle, WA 98122",
+        "neighborhood": "Capitol Hill",
+        "walkability_score": 96,
+        "amenities": [
+          "In-unit Washer/Dryer",
+          "Rooftop BBQ",
+          "Fitness Center",
+          "Dishwasher",
+          "Secure Bike Room"
+        ],
+        "commute_time": 12,
+        "image_url": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop&q=60",
+        "approved": true,
+        "score": 100,
+        "reasoning": {
+          "budget": "The listing price of $2800 is well within the user's maximum budget of $3200.",
+          "laundry": "The listing explicitly states 'In-unit Washer/Dryer' in its amenities, fulfilling the requirement for in-unit laundry.",
+          "climbing_gym": "The user indicated that proximity to a climbing gym / active fitness is not a requirement ('False'). The listing's proximity (0.5 miles) therefore does not violate this constraint and is acceptable.",
+          "commute": "The commute time to Downtown is 12 minutes, which is well under the user's maximum allowed commute of 20 minutes.",
+          "overall": "This apartment perfectly aligns with all of the user's specified constraints. It is well within budget, offers the required in-unit laundry, has a very short commute to Downtown, and its proximity to a climbing gym is acceptable given it was not a required feature."
+        }
+      },
+      {
+        "id": "list_sea_002",
+        "title": "Fremont Brick Loft",
+        "price": 2400,
+        "address": "3400 Phinney Ave N, Seattle, WA 98103",
+        "neighborhood": "Fremont",
+        "walkability_score": 93,
+        "amenities": [
+          "In-unit Washer/Dryer",
+          "Shared Courtyard",
+          "Dishwasher",
+          "Pet Friendly",
+          "Exposed Timber"
+        ],
+        "commute_time": 18,
+        "image_url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop&q=60",
+        "approved": true,
+        "score": 98,
+        "reasoning": {
+          "budget": "The listing's price of $2400 is well within the user's maximum budget of $3200, meeting this constraint comfortably.",
+          "laundry": "The listing explicitly states 'In-unit Washer/Dryer' as an amenity, directly fulfilling the user's requirement for in-unit laundry.",
+          "climbing_gym": "The user's constraint was 'Must be close to climbing gym / active fitness: False', meaning proximity is not required. While the listing is actually quite close (0.8 miles) to a climbing gym, this does not violate the user's preference and could even be considered a convenient bonus, but it does not prevent approval.",
+          "commute": "The commute time to Downtown is listed as 18 minutes, which is within the user's maximum allowed commute time of 20 minutes.",
+          "overall": "This listing is an excellent match for the user's profile. All critical constraints, including budget, in-unit laundry, and commute time to Downtown, are perfectly met. The user's preference regarding climbing gym proximity (not required) is also satisfied, with the actual close proximity being a potential added benefit rather than a drawback."
+        }
+      },
+      {
+        "id": "list_sea_003",
+        "title": "Ballard Garden Studio",
+        "price": 1800,
+        "address": "5400 Ballard Ave NW, Seattle, WA 98107",
+        "neighborhood": "Ballard",
+        "walkability_score": 94,
+        "amenities": [
+          "Shared Backyard",
+          "Laundry in Building",
+          "Hardwood Floors",
+          "Secure Entry"
+        ],
+        "commute_time": 25,
+        "image_url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop&q=60",
+        "approved": false,
+        "score": 50,
+        "reasoning": {
+          "budget": "The listing price of $1800 is well within the user's maximum budget of $3200, meeting this constraint perfectly.",
+          "laundry": "The listing offers 'Laundry in Building', indicating shared facilities. The user explicitly requires 'In-unit laundry', which this listing does not provide, failing this critical constraint.",
+          "climbing_gym": "The user stated that being close to a climbing gym/active fitness is NOT a requirement. The listing's proximity (1.5 miles) is therefore acceptable as it does not contradict the user's non-priority.",
+          "commute": "The listing's commute time to Downtown is 25 minutes. This exceeds the user's maximum allowed commute time of 20 minutes, failing to meet this constraint.",
+          "overall": "The listing is excellent from a budget perspective and appropriately addresses the non-requirement for fitness proximity. However, it critically fails on two major constraints: it does not offer in-unit laundry as required, and its commute time to Downtown exceeds the user's maximum limit. Due to these significant mismatches, the listing is not approved."
+        }
+      }
+    ]
+  }
+}
