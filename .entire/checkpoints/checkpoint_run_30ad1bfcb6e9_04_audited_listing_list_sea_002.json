@@ -1,0 +1,21 @@
+{
+  "run_id": "run_30ad1bfcb6e9",
+  "step": 4,
+  "step_name": "Audited Listing list_sea_002",
+  "comment": "Logs a granular, constraint-by-constraint audit evaluation of the individual listing 'list_sea_002', storing its approval status, compatibility score, and detailed structured reasoning (budget, laundry, fitness, commute, and search query).",
+  "timestamp": "2026-05-23T15:04:10.964381",
+  "data": {
+    "listing_id": "list_sea_002",
+    "title": "Fremont Brick Loft",
+    "approved": true,
+    "score": 70,
+    "reasoning": {
+      "budget": "The listing price of $2400 is well within the user's maximum budget of $3200.",
+      "laundry": "The listing explicitly states 'In-unit Washer/Dryer' in its amenities, fulfilling the requirement for in-unit laundry.",
+      "climbing_gym": "The user indicated 'False' for needing to be close to a climbing gym/active fitness. The listing's proximity (0.8 miles) to a climbing gym does not conflict with this constraint, as the user does not require it.",
+      "commute": "The commute time to Downtown is 18 minutes, which is within the user's maximum allowed commute of 20 minutes.",
+      "search_query": "The listing is located in Fremont. While Fremont has excellent walkability within its own neighborhood, it is approximately 3-4 miles from Pike Place Market, making it not practically walkable for most people. Therefore, this listing does not satisfy the 'can walk to Pike Place Market' preference.",
+      "overall": "This listing meets all the primary hard constraints: it's within budget, has in-unit laundry, and offers a commute to Downtown within the specified limit. The only significant deviation is that it does not meet the custom preference of being walkable to Pike Place Market, as Fremont is not within comfortable walking distance of that location. Despite this, the core requirements are met, making it an approved option, though the score reflects the unmet custom preference."
+    }
+  }
+}
