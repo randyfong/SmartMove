@@ -891,6 +891,76 @@ input[type="range"]::-webkit-slider-thumb:hover {
     color: var(--color-crimson);
 }
 
+/* Filter Analysis / Rejection Comments inside rejected cards */
+.card-rejection-comments {
+    background: rgba(239, 68, 68, 0.04);
+    border: 1px solid rgba(239, 68, 68, 0.12);
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: var(--transition-smooth);
+}
+
+.listing-card.rejected:hover .card-rejection-comments {
+    background: rgba(239, 68, 68, 0.07);
+    border-color: rgba(239, 68, 68, 0.25);
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.08);
+}
+
+.rejection-comments-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-crimson);
+}
+
+.rejection-comments-header svg {
+    flex-shrink: 0;
+}
+
+.rejection-comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.rejection-comment-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--text-secondary);
+}
+
+.comment-bullet {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-crimson);
+    margin-top: 5px;
+    flex-shrink: 0;
+    box-shadow: 0 0 4px var(--color-crimson);
+}
+
+.comment-text {
+    flex-grow: 1;
+}
+
+.comment-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+
+
 /* Git Checkpoints Section */
 .git-checkpoints-section {
     grid-column: 1 / span 2;

@@ -209,6 +209,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 const data = await res.json();
                 state.checkpoints = data;
                 renderCheckpointsTable();
+
+                // Auto-hydrate search results from git history on initial page load if state is empty
+                if (state.listings.length === 0 && data.length > 0) {
+                    const latestFinalized = [...data].reverse().find(cp => cp.step_name === "Search Recommendations Finalized");
+                    if (latestFinalized && latestFinalized.data && latestFinalized.data.all_results) {
+                        state.currentRun = latestFinalized.run_id;
+                        state.listings = latestFinalized.data.all_results;
+                        renderDecisionTree("all");
+                        addLog("system", `Loaded cached relocation results from trace checkpoint: <strong>${latestFinalized.run_id}</strong>.`, "system");
+                    }
+                }
             }
         } catch (err) {
             console.error("Failed to fetch checkpoints", err);
@@ -410,6 +421,61 @@ document.addEventListener("DOMContentLoaded", () => {
             
             // Build features
             const features = item.amenities.slice(0, 2).join(" &bull; ");
+
+            // Build rejection reasons comments if not approved
+            let rejectionReasonCommentsHtml = '';
+            if (!item.approved && item.reasoning) {
+                const failedComments = [];
+                // Check each criterion
+                const criteria = [
+                    { key: 'budget', label: 'Budget' },
+                    { key: 'laundry', label: 'Laundry' },
+                    { key: 'climbing_gym', label: 'Active Fitness' },
+                    { key: 'commute', label: 'Commute' }
+                ];
+                
+                criteria.forEach(c => {
+                    const comment = item.reasoning[c.key];
+                    if (comment && (comment.includes("REJECTED") || comment.includes("FAIL") || comment.toLowerCase().includes("fail") || comment.toLowerCase().includes("exceeds") || comment.toLowerCase().includes("lacks") || comment.toLowerCase().includes("not meet"))) {
+                        // Let's clean the comment prefix if it starts with REJECTED:
+                        let cleanText = comment;
+                        if (comment.startsWith("REJECTED:")) {
+                            cleanText = comment.replace(/^REJECTED:\s*/, "");
+                        } else if (comment.startsWith("FAIL:")) {
+                            cleanText = comment.replace(/^FAIL:\s*/, "");
+                        }
+                        
+                        failedComments.push(`
+                            <div class="rejection-comment-item">
+                                <span class="comment-bullet"></span>
+                                <span class="comment-text"><strong>${c.label}:</strong> ${cleanText}</span>
+                            </div>
+                        `);
+                    }
+                });
+                
+                // Fallback to overall summary if no specific criteria were flagged as rejected in text
+                if (failedComments.length === 0 && item.reasoning.overall) {
+                    failedComments.push(`
+                        <div class="rejection-comment-item">
+                            <span class="comment-bullet"></span>
+                            <span class="comment-text">${item.reasoning.overall}</span>
+                        </div>
+                    `);
+                }
+                
+                rejectionReasonCommentsHtml = `
+                    <div class="card-rejection-comments">
+                        <div class="rejection-comments-header">
+                            <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            <span>Filter Analysis</span>
+                        </div>
+                        <div class="rejection-comments-list">
+                            ${failedComments.join('')}
+                        </div>
+                    </div>
+                `;
+            }
             
             card.innerHTML = `
                 <div class="card-img-wrapper">
@@ -433,6 +499,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <span>Commute: ${item.commute_time}m</span>
                         </div>
                     </div>
+                    ${rejectionReasonCommentsHtml}
                 </div>
                 <div class="card-audit-status-bar">
                     ${item.approved 
